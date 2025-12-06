@@ -1,2 +1,25 @@
 @import "tailwindcss";
 @plugin "daisyui";
+a.active{
+    @apply  text-yellow-400  font-medium
+  px-2
+  rounded-3xl 
+
+
+}
+.btn-primary{
+  @apply bg-yellow-400
+ btn btn-active shadow-md border-none 
+} 
+.btn-outlines{
+    @apply  btn btn-outline shadow-md border-amber-500 text-white
+}
+.btn-primary:hover{
+  @apply opacity-80
+}
+.btn-outlines:hover{
+  @apply  bg-gradient-to-br from-red-800 hover:via-amber-700 hover:to-stone-950
+}
+.text-primary{
+   @apply text-amber-500
+}

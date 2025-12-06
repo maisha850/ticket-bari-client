@@ -53,7 +53,7 @@ toast.success('Log Out Successfully!')
 </div>
      }
  {
-  user ? <button onClick={handleLogOut} className='btn'>Log Out</button> : <Link to={`/logIn`} className='btn'>Log In</Link>
+  user ? <button onClick={handleLogOut} className='btn btn-primary'>Log Out</button> : <Link to={`/logIn`} className='btn btn-primary'>Log In</Link>
  }
   </div>
 </div>

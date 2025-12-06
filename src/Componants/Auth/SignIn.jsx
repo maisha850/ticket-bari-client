@@ -61,7 +61,7 @@ toast.error(err?.message)
                 id='email'
                 required
                 placeholder='Enter Your Email Here'
-                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-lime-500 bg-gray-200 text-gray-900'
+                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-yellow-400 bg-gray-200 text-gray-900'
                 data-temp-mail-org='0'
               />
               {
@@ -83,7 +83,7 @@ toast.error(err?.message)
                 id='password'
                 required
                 placeholder='*******'
-                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-lime-500 bg-gray-200 text-gray-900'
+                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-yellow-400 bg-gray-200 text-gray-900'
               />
                {errors.password?.type === 'required' && <p className='text-red-500'>Password is required</p> }
           {errors.password?.type === 'minLength'&& <p className='text-red-500'>Password must contain 6 characters</p>}
@@ -94,7 +94,7 @@ toast.error(err?.message)
           <div>
             <button
               type='submit'
-              className='bg-lime-500 w-full rounded-md py-3 text-white'
+              className='bg-yellow-400 w-full rounded-md py-3'
             >
               Log In
             </button>
