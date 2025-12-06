@@ -1,15 +1,13 @@
 @import "tailwindcss";
 @plugin "daisyui";
 a.active{
-    @apply  text-yellow-400  font-medium
-  px-2
-  rounded-3xl 
+    @apply  text-yellow-500  font-medium
+  
 
 
 }
 .btn-primary{
-  @apply bg-yellow-400
- btn btn-active shadow-md border-none 
+  @apply px-6 py-2 bg-yellow-400 hover:bg-yellow-500 text-black font-semibold rounded-lg shadow-md transition duration-200 
 } 
 .btn-outlines{
     @apply  btn btn-outline shadow-md border-amber-500 text-white

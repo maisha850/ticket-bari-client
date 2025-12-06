@@ -5,20 +5,20 @@ import banner2 from '../assets/ChatGPT Image Dec 6, 2025, 12_33_22 PM.png'
 
 const Banner = () => {
    return (
-<section className="w-full min-h-screen flex items-center justify-center text-white px-6 " >
+<section className=" flex justify-center items-center text-white  " >
     <motion.div initial={{ opacity: 0, y: -30 }}
 animate={{ opacity: 1, y: 0 }}
-transition={{ duration: 0.8 }} className='min-w-screen bg-no-repeat h-200' style={{
+transition={{ duration: 0.8 }} className='w-full block mx-auto bg-center bg-cover bg-no-repeat h-200' style={{
     backgroundImage:
       `url(${banner2})`,
   }}>
-<div className=" mt-40 space-y-6 ml-20 ">
+<div className=" pt-40 space-y-6 ml-20 ">
 {/* Animated Title */}
 <motion.h1
 initial={{ opacity: 0, y: -30 }}
 animate={{ opacity: 1, y: 0 }}
 transition={{ duration: 0.8 }}
-className="text-5xl md:text-6xl font-bold leading-tight"
+className="text-5xl md:text-6xl  font-bold leading-tight"
 >
 Welcome to <span className="text-yellow-300">TicketBari</span>
 </motion.h1>

@@ -9,7 +9,7 @@ const Navbar = () => {
     const links = <>
     <NavLink to="/" className="mr-8 ">Home</NavLink>
     <NavLink to="/" className="mr-8 ">All Tickets</NavLink>
-    <NavLink to="/" className="mr-8 ">Dashboard</NavLink>
+    <NavLink to="/dashboard" className="mr-8 ">Dashboard</NavLink>
    {
     !user && <>
      <NavLink to="/register" className="mr-8 ">Register</NavLink>
@@ -53,7 +53,7 @@ toast.success('Log Out Successfully!')
 </div>
      }
  {
-  user ? <button onClick={handleLogOut} className='btn btn-primary'>Log Out</button> : <Link to={`/logIn`} className='btn btn-primary'>Log In</Link>
+  user ? <button onClick={handleLogOut} className=' btn-primary'>Log Out</button> : <Link to={`/logIn`} className='btn-primary'>Log In</Link>
  }
   </div>
 </div>
