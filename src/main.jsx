@@ -13,6 +13,13 @@ import PrivateRoute from './Componants/Routes/PrivateRoute.jsx'
 import DashboardHome from './Componants/Dashboard/DashboardHome.jsx'
 import AddTicket from './Componants/Vendor/AddTicket.jsx'
 import Profile from './Componants/Common/Profile.jsx'
+import {QueryClient, QueryClientProvider} from '@tanstack/react-query'
+import MyAddedTicket from './Componants/Vendor/MyAddedTicket.jsx'
+import UpdateTicket from './Componants/Vendor/UpdateTicket.jsx'
+import AllTickets from './Admin/AllTickets.jsx'
+import TicketDetails from './Componants/TicketDetails.jsx'
+
+const queryClient = new QueryClient()
 const router = createBrowserRouter([
 {
   path:'/',
@@ -29,6 +36,14 @@ const router = createBrowserRouter([
     {
       path:'/logIn',
       Component:SignIn
+    },
+        {
+      path:'/all-tickets',
+      element: <AllTickets></AllTickets>
+    },
+    {
+      path:'/ticket-details',
+      Component: TicketDetails
     }
   ]
 
@@ -50,6 +65,18 @@ const router = createBrowserRouter([
     {
       path:'profile',
       Component: Profile
+    },
+    {
+      path:'my-added-tickets',
+      element: <MyAddedTicket></MyAddedTicket>
+    },
+    {
+      path: 'update-ticket/:id',
+      element: <UpdateTicket></UpdateTicket>
+    },
+    {
+      path:'all-tickets',
+      element: <AllTickets></AllTickets>
     }
   ]
 
@@ -58,9 +85,11 @@ const router = createBrowserRouter([
 ])
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-  <AuthProvider>
+ <QueryClientProvider client={queryClient}>
+   <AuthProvider>
     <RouterProvider router={router}></RouterProvider>
     <ToastContainer></ToastContainer>
   </AuthProvider>
+ </QueryClientProvider>
   </StrictMode>,
 )

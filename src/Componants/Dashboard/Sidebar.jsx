@@ -51,9 +51,9 @@ const Sidebar = () => {
           <div>
             {/* Logo */}
             <div className='w-full hidden md:flex px-4 py-2 shadow-lg rounded-lg justify-center items-center bg-yellow-400 mx-auto'>
-              <Link to='/'>
+        
              <Logo></Logo>
-              </Link>
+              
             </div>
           </div>
 

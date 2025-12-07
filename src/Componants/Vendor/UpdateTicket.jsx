@@ -1,17 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import useAuth from '../../Hooks/useAuth';
 
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import { toast } from 'react-toastify';
 import { imageUpload } from '../../Utility';
-import { useNavigate } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 
-const AddTicket = () => {
+const UpdateTicket = () => {
     const{user}=useAuth()
+    const{id}=useParams()
     const instance = useAxiosSecure()
     const {register , handleSubmit, formState:{errors}}=useForm()
     const [selectedPerks, setSelectedPerks] = useState([]);
+    const [ticket , setTicket]=useState({})
     const navigate = useNavigate()
 
   const perksOptions = ["AC", "WiFi", "Food", "TV", "Charging Port", "Breakfast"];
@@ -23,21 +25,24 @@ const AddTicket = () => {
         : [...prev, perk]
     );
   };
+    useEffect(() => {
+    instance.get(`/tickets/${id}`).then((res) => setTicket(res.data));
+  }, [id, instance]);
   const handleTickets=async(data)=>{
     const{title,from, to,transportType,price, quantity,departure}=data
     const imageFile = data.image[0]
     const image = await imageUpload(imageFile)
-    console.log(image)
+    
  const ticketInfo={
   title, from, to , transportType ,price:Number(price), quantity:Number(quantity), image,
   departure, selectedPerks ,
    vendorName : user.displayName, vendorEmail: user.email
  }
 
-const res = await instance.post('/tickets', ticketInfo)
-if(res.data.insertedId){
-toast.success('Tickets Added Successfully!')
-navigate('/dashboard/my-added-tickets')
+const res = await instance.patch(`/tickets/${id}`, ticketInfo)
+if(res.data.modifiedCount){
+toast.success('Tickets updated Successfully!')
+navigate('/')
 }
 
 console.log(res.data)
@@ -46,7 +51,7 @@ return res.data
     return (
         <div className="max-w-3xl mx-auto p-6 bg-white rounded-xl shadow-md border border-gray-300 mt-10">
       <h2 className="text-3xl font-bold text-center mb-6 text-yellow-500">
-        🎟 Add New Ticket
+        🎟 Update Ticket
       </h2>
 
       <form onSubmit={handleSubmit(handleTickets)} className="grid gap-6">
@@ -56,7 +61,9 @@ return res.data
           <input
             className="w-full p-3 border border-gray-300 rounded-md"
             placeholder="Ticket Title"
-            {...register("title", { required: true })}
+            defaultValue={ticket.title}
+            {...register("title")}
+            
           />
           {errors.title && <p className="text-red-500 text-sm">Required*</p>}
         </div>
@@ -66,19 +73,21 @@ return res.data
           <input
             className="p-3 border border-gray-300 rounded-md"
             placeholder="From (Location)"
-            {...register("from", { required: true })}
+            defaultValue={ticket.from}
+            {...register("from")}
           />
           <input
             className="p-3 border border-gray-300 rounded-md"
             placeholder="To (Location)"
-            {...register("to", { required: true })}
+            {...register("to")}
+             defaultValue={ticket.to}
           />
         </div>
 
         {/* Transport Type */}
         <select
           className="p-3 border border-gray-300 rounded-md"
-          {...register("transportType", { required: true })}
+          {...register("transportType")}
         >
           <option value="">Select Transport Type</option>
           <option>Bus</option>
@@ -93,13 +102,15 @@ return res.data
             type="number"
             className="p-3 border border-gray-300  rounded-md"
             placeholder="Price (per unit)"
-            {...register("price", { required: true })}
+            {...register("price")}
+             defaultValue={ticket.price}
           />
           <input
             type="number"
             className="p-3 border border-gray-300  rounded-md"
             placeholder="Ticket Quantity"
-            {...register("quantity", { required: true })}
+            {...register("quantity")}
+             defaultValue={ticket.quantity}
           />
         </div>
 
@@ -111,7 +122,8 @@ return res.data
           <input
             type="datetime-local"
             className="w-full p-3 border border-gray-300 rounded-md"
-            {...register("departure", { required: true })}
+            {...register("departure")}
+             defaultValue={ticket.departure}
           />
         </div>
 
@@ -144,6 +156,7 @@ return res.data
                       {...register('image')}
                       name='image'
                       id='image'
+                      defaultValue={ticket.image}
                     
                       
                     />
@@ -175,7 +188,7 @@ return res.data
           type="submit"
           className="w-fullpx-6 py-2 bg-yellow-400 hover:bg-yellow-500 text-black font-semibold rounded-lg shadow-md transition duration-200 "
         >
-         Add Ticket
+        Update Ticket
         </button>
       </form>
     </div>
@@ -183,4 +196,4 @@ return res.data
 
 };
 
-export default AddTicket;
+export default UpdateTicket;

@@ -1,10 +1,11 @@
 import axios from 'axios';
 import React, {  useEffect } from 'react';
-import useAuth from './UseAuth';
+
 import { useNavigate } from 'react-router';
+import useAuth from './useAuth';
 
 const instance = axios.create({
-    baseURL: 'https://book-haven-server-one.vercel.app/'
+    baseURL: 'http://localhost:3000'
     
 })
 
@@ -13,7 +14,7 @@ const useAxiosSecure = () => {
     const navigate = useNavigate()
     useEffect(()=>{
         const requestInceptors = instance.interceptors.request.use((config)=>{
-            console.log(config)
+          
             config.headers.Authorization = `Bearer ${user.accessToken} `
             return config
         })
