@@ -4,7 +4,7 @@ import useAuth from '../../Hooks/useAuth';
 
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import { toast } from 'react-toastify';
-import { imageUpload } from '../../Utility';
+// import { imageUpload } from '../../Utility';
 import { useNavigate, useParams } from 'react-router';
 
 const UpdateTicket = () => {
@@ -30,11 +30,11 @@ const UpdateTicket = () => {
   }, [id, instance]);
   const handleTickets=async(data)=>{
     const{title,from, to,transportType,price, quantity,departure}=data
-    const imageFile = data.image[0]
-    const image = await imageUpload(imageFile)
+    // const imageFile = data.image[0]
+    // const image = await imageUpload(imageFile)
     
  const ticketInfo={
-  title, from, to , transportType ,price:Number(price), quantity:Number(quantity), image,
+  title, from, to , transportType ,price:Number(price), quantity:Number(quantity),
   departure, selectedPerks ,
    vendorName : user.displayName, vendorEmail: user.email
  }

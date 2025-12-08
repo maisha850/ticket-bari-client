@@ -34,7 +34,7 @@ toast.success('Log Out Successfully!')
        {links}
       </ul>
     </div>
-    <a className=" text-xl"><Logo></Logo></a>
+ <Logo></Logo>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">

@@ -42,7 +42,7 @@ const router = createBrowserRouter([
       element: <AllTickets></AllTickets>
     },
     {
-      path:'/ticket-details',
+      path:'/ticket-details/:id',
       Component: TicketDetails
     }
   ]
@@ -73,11 +73,8 @@ const router = createBrowserRouter([
     {
       path: 'update-ticket/:id',
       element: <UpdateTicket></UpdateTicket>
-    },
-    {
-      path:'all-tickets',
-      element: <AllTickets></AllTickets>
     }
+    
   ]
 
 

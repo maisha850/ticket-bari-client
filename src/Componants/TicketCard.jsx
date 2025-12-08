@@ -4,7 +4,7 @@ import { Link } from "react-router";
 
 
 const TicketCard = ({ticket}) => {
-      const{title, image ,departure , from , to,price , quantity,selectedPerks,transportType}=ticket
+      const{title, image ,departure , from , to,price , quantity,selectedPerks,transportType,_id}=ticket
   return (
     <div className="w-full max-w-lg bg-white border border-gray-200 rounded-xl shadow-lg overflow-hidden transform transition-all hover:scale-[1.02] hover:shadow-2xl">
 
@@ -62,7 +62,7 @@ const TicketCard = ({ticket}) => {
 
         {/* See details button */}
         <Link 
-          to="/ticket-details"
+          to={`/ticket-details/${_id}`}
           className="w-full block text-center bg-yellow-400 text-black font-semibold py-3 rounded-lg hover:bg-yellow-500 transition-all duration-200"
         >
           See Details
