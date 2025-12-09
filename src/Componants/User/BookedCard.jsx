@@ -32,27 +32,13 @@ const BookedCard = ({ticket}) => {
         return () => clearInterval(timer);
       }, [ticket]);
 
-// payment 
- 
-//     const handlePayment=async()=>{
-// const paymentInfo ={
-//     ticketId: ticket.ticketId,
-// total : ticket.total,
-// userEmail : ticket.userEmail,
-// title : ticket.title,
-// quantity: ticket.quantity
 
-// }
-// console.log(paymentInfo)
-// const res = await instance.post('/payment-checkout-session', paymentInfo)
-// console.log(res.data)
-// window.location.href = res.data.url
-//     }
 
 const handlePayment = async () => {
   try {
     const paymentInfo = {
-      ticketId: ticket.ticketId,
+       
+      ticketsId: ticket._id,
       total: ticket.total,
       userEmail: ticket.userEmail,
       title: ticket.title,
@@ -88,7 +74,10 @@ const handlePayment = async () => {
         {/* Title & Type */}
         <div className="flex flex-col gap-2">
           <h2 className="text-2xl font-bold text-gray-800">{ticket.title}</h2>
-         <p className={`btn w-20 btn-xs btn-outline ${ticket.status == "pending" ? 'btn-warning' : 'btn-active'}`}>{ticket.status}</p>
+    <p>{
+      ticket.status === 'paid' ? <p className='btn btn-xs btn-success btn-outline'>Paid</p> : <p className='btn btn-xs btn-error btn-outline'>{ticket.status}</p>
+}
+</p>
         </div>
          {/* Countdown */}
         <div className="bg-gray-100 py-3 px-5 rounded-md text-center">
@@ -121,7 +110,8 @@ const handlePayment = async () => {
             {/* {ticket.departure === 0 ? <button className='btn btn-disabled' disabled>Book Now</button> : <button className='btn-primary'>Book Now</button>}   */}
        
 {/* Open the modal using document.getElementById('ID').showModal() method */}
-<button onClick={handlePayment} className="btn-primary">Pay Now</button>
+{ ticket.status === "pending" && <button onClick={handlePayment} className="btn-primary">Pay Now</button> }
+
 
          
         </div>

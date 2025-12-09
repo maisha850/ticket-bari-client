@@ -9,6 +9,7 @@ const VendorMenu = () => {
           <NavLink className='text-xl font-bold text-gray-600 hover:text-gray-400 flex items-center justify-center' to={'/dashboard/profile'}>  <MdAddCircle size={20}></MdAddCircle>Profile</NavLink>
          <NavLink className='text-xl font-bold text-gray-600 hover:text-gray-400 flex items-center justify-center' to={'/dashboard/add-tickets'}>  <MdAddCircle size={20}></MdAddCircle>Add tickets</NavLink>
          <NavLink className='text-xl font-bold text-gray-600 hover:text-gray-400 flex items-center justify-center' to={'/dashboard/my-added-tickets'}>  <MdAddCircle size={20}></MdAddCircle>My Added tickets</NavLink>
+         <NavLink className='text-xl font-bold text-gray-600 hover:text-gray-400 flex items-center justify-center' to={'/dashboard/requested-bookings'}>  <MdAddCircle size={20}></MdAddCircle>Requested Bookings</NavLink>
        </div>
         </div>
     );

@@ -20,6 +20,8 @@ import AllTickets from './Admin/AllTickets.jsx'
 import TicketDetails from './Componants/TicketDetails.jsx'
 import MyBookedTicket from './Componants/User/MyBookedTicket.jsx'
 import PaymentSuccess from './Componants/Pages/PaymentSuccess.jsx'
+import TransactionHistory from './Componants/User/TransactionHistory.jsx'
+import RequestedBookings from './Componants/Vendor/RequestedBookings.jsx'
 
 const queryClient = new QueryClient()
 const router = createBrowserRouter([
@@ -83,6 +85,14 @@ const router = createBrowserRouter([
     {
       path:'payment-success',
       Component: PaymentSuccess
+    },
+    {
+      path:'transaction-history',
+      Component: TransactionHistory
+    },
+    {
+      path: 'requested-bookings',
+      element:<RequestedBookings></RequestedBookings>
     }
     
   ]
