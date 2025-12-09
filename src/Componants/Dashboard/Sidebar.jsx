@@ -9,6 +9,7 @@ import { AiOutlineBars } from 'react-icons/ai'
 import Logo from '../Shared/Logo'
 import useAuth from '../../Hooks/useAuth'
 import VendorMenu from '../Vendor/VendorMenu'
+import UserMenu from '../User/UserMenu'
 
 // User Menu
 
@@ -62,6 +63,7 @@ const Sidebar = () => {
             {/*  Menu Items */}
             <nav>
             <VendorMenu></VendorMenu>
+            <UserMenu></UserMenu>
             
             </nav>
           </div>

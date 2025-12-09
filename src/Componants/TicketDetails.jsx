@@ -1,16 +1,23 @@
 
-import React, { useEffect, useRef, useState } from 'react';
-import { Link, useParams } from 'react-router';
+import React, {  useEffect, useRef, useState } from 'react';
+import {  useNavigate,  useParams } from 'react-router';
 import useAxiosSecure from '../Hooks/useAxiosSecure';
 import Loading from './Shared/Loading';
+import { useForm } from 'react-hook-form';
+
+import { toast } from 'react-toastify';
+import useAuth from '../Hooks/useAuth';
 
 const TicketDetails = () => {
    const {id}=useParams()
+   const {user}=useAuth()
+  
    const instance = useAxiosSecure()
    const[ticket , setTicket]= useState({})
      const [countdown, setCountdown] = useState("");
      const bookRef = useRef(null)
-
+     const {register, handleSubmit}=useForm()
+const navigate = useNavigate()
    useEffect(()=>{
     instance.get(`/tickets/${id}`)
     .then(res=>{
@@ -18,6 +25,7 @@ const TicketDetails = () => {
         setTicket(res.data)
     })
    },[instance,id])
+  //  countdown
     useEffect(() => {
     if (!ticket) return;
 
@@ -47,13 +55,41 @@ const TicketDetails = () => {
   // model
   const handleModal=()=>{
     bookRef.current.showModal()
+    
+  }
+  const handleBookingForm=async(data)=>{
+    const booking ={
+      ticketId: id,
+      title: ticket.title,
+      image: ticket.image,
+      from: ticket.from,
+      to: ticket.to,
+      departure: ticket.departure,
+      quantity: Number(data.quantity),
+      status: "pending",
+      price: ticket.price,
+      total: Number(data.quantity) * ticket.price,
+      bookingTime: new Date().toISOString(),
+      userName: user?.displayName,
+      userEmail: user?.email 
+    };
+    
+    await instance.post(`/myBookTickets`, booking)
+    .then(res=>{
+      if(res.data.insertedId){
+        toast.success(`${ticket.title} is booked`)
+navigate('/dashboard/my-booked-tickets')
+console.log(res.data)
+      }
+    })
+    
   }
   if(!ticket){
     return <Loading></Loading>
   }
     return (
         <div>
-             <div className="max-w-4xl mx-auto bg-white p-8 shadow-xl rounded-lg overflow-hidden mt-10 flex gap-5">
+             <div className="max-w-5xl mx-auto bg-white p-8 shadow-xl rounded-lg overflow-hidden mt-10 flex gap-8">
       {/* Banner Image */}
       <img 
         src={ticket.image} 
@@ -109,15 +145,28 @@ const TicketDetails = () => {
 {/* Open the modal using document.getElementById('ID').showModal() method */}
 <button className="btn-primary" onClick={handleModal}>Book Now</button>
 <dialog ref={bookRef} className="modal modal-bottom sm:modal-middle">
-  <div className="modal-box">
-<form className='flex flex-col gap-3'>
+  <div className="modal-box ">
+<form onSubmit={handleSubmit(handleBookingForm)} className='flex flex-col gap-3'>
   <label className='text-xl' htmlFor="quantity">Quantity</label>
-  <input className='input' type="number" name="" id="" placeholder='Quantity'/>
+  {/* <input {...register('quantity')} className='input' type="number" name="" id="" placeholder='Quantity'/> */}
+  <input
+  {...register("quantity", { valueAsNumber: true, required: true })}
+  type="number"
+  min="1"
+  max={ticket.quantity}
+  className="input"
+  placeholder="Quantity"
+/>
+
   <div className="modal-action">
  <button className='btn-primary'>Booked</button>
+ <form method="dialog">
+        {/* if there is a button in form, it will close the modal */}
+        <button className="btn">Close</button>
+      </form>
     </div>
 </form>
-    
+      
   </div>
 </dialog>
          

@@ -15,6 +15,7 @@ const UpdateTicket = () => {
     const [selectedPerks, setSelectedPerks] = useState([]);
     const [ticket , setTicket]=useState({})
     const navigate = useNavigate()
+    console.log(selectedPerks)
 
   const perksOptions = ["AC", "WiFi", "Food", "TV", "Charging Port", "Breakfast"];
 
@@ -35,14 +36,14 @@ const UpdateTicket = () => {
     
  const ticketInfo={
   title, from, to , transportType ,price:Number(price), quantity:Number(quantity),
-  departure, selectedPerks ,
-   vendorName : user.displayName, vendorEmail: user.email
+  departure
+  
  }
 
 const res = await instance.patch(`/tickets/${id}`, ticketInfo)
 if(res.data.modifiedCount){
 toast.success('Tickets updated Successfully!')
-navigate('/')
+navigate('/all-tickets')
 }
 
 console.log(res.data)

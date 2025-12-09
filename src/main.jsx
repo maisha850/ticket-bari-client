@@ -18,6 +18,8 @@ import MyAddedTicket from './Componants/Vendor/MyAddedTicket.jsx'
 import UpdateTicket from './Componants/Vendor/UpdateTicket.jsx'
 import AllTickets from './Admin/AllTickets.jsx'
 import TicketDetails from './Componants/TicketDetails.jsx'
+import MyBookedTicket from './Componants/User/MyBookedTicket.jsx'
+import PaymentSuccess from './Componants/Pages/PaymentSuccess.jsx'
 
 const queryClient = new QueryClient()
 const router = createBrowserRouter([
@@ -73,6 +75,14 @@ const router = createBrowserRouter([
     {
       path: 'update-ticket/:id',
       element: <UpdateTicket></UpdateTicket>
+    },
+    {
+      path:'my-booked-tickets',
+      element: <MyBookedTicket></MyBookedTicket>
+    },
+    {
+      path:'payment-success',
+      Component: PaymentSuccess
     }
     
   ]
