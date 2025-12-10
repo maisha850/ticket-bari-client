@@ -23,6 +23,7 @@ import PaymentSuccess from './Componants/Pages/PaymentSuccess.jsx'
 import TransactionHistory from './Componants/User/TransactionHistory.jsx'
 import RequestedBookings from './Componants/Vendor/RequestedBookings.jsx'
 import UserMgt from './Componants/Admin/UserMgt.jsx'
+import ManageTicket from './Componants/Admin/ManageTicket.jsx'
 
 const queryClient = new QueryClient()
 const router = createBrowserRouter([
@@ -98,6 +99,10 @@ const router = createBrowserRouter([
     {
       path: 'user-management',
       element: <UserMgt></UserMgt>
+    },
+    {
+      path: 'manage-tickets',
+      element: <ManageTicket></ManageTicket>
     }
     
   ]
