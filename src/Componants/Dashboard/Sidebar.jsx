@@ -10,6 +10,7 @@ import Logo from '../Shared/Logo'
 import useAuth from '../../Hooks/useAuth'
 import VendorMenu from '../Vendor/VendorMenu'
 import UserMenu from '../User/UserMenu'
+import AdminMenu from '../Admin/AdminMenu'
 
 // User Menu
 
@@ -64,6 +65,7 @@ const Sidebar = () => {
             <nav>
             <VendorMenu></VendorMenu>
             <UserMenu></UserMenu>
+            <AdminMenu></AdminMenu>
             
             </nav>
           </div>

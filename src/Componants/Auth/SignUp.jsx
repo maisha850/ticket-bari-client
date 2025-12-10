@@ -4,16 +4,25 @@ import { FcGoogle } from 'react-icons/fc';
 import { Link, useNavigate } from 'react-router';
 import useAuth from '../../Hooks/useAuth';
 import { toast } from 'react-toastify';
+import useAxiosSecure from '../../Hooks/useAxiosSecure';
 
 const SignUp = () => {
   const{createUser, updateUserProfile, signInWithGoogle}=useAuth()
+  const instance = useAxiosSecure()
     const{register, handleSubmit,formState:{errors}}=useForm()
     const navigate= useNavigate()
     const handleRegister=async(data)=>{
    const { name, image, email, password } = data
+   const userInfo = {
+    email : data.email,
+      displayName : data.name,
+                    photoURL : data.image
+}
    try{
 await createUser(email , password)
-updateUserProfile(name , image)
+await instance.post('/users', userInfo)
+
+await updateUserProfile(name , image)
 toast.success('Registered Successfully!')
 navigate('/')
    }
@@ -25,7 +34,13 @@ toast.error(err?.message)
     const handleGoogleSignIn = async () => {
     try {
       //User Registration using google
-      await signInWithGoogle()
+     const res= await signInWithGoogle()
+       const userInfo = {
+    email : res.user.email,
+      displayName : res.user.displayName,
+                    photoURL : res.user.photoURL
+}
+      await instance.post('/users' , userInfo)
       toast.success('Registered Successfully!')
       navigate('/')
     } catch (err) {

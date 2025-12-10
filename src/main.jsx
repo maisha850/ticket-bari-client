@@ -22,6 +22,7 @@ import MyBookedTicket from './Componants/User/MyBookedTicket.jsx'
 import PaymentSuccess from './Componants/Pages/PaymentSuccess.jsx'
 import TransactionHistory from './Componants/User/TransactionHistory.jsx'
 import RequestedBookings from './Componants/Vendor/RequestedBookings.jsx'
+import UserMgt from './Componants/Admin/UserMgt.jsx'
 
 const queryClient = new QueryClient()
 const router = createBrowserRouter([
@@ -93,6 +94,10 @@ const router = createBrowserRouter([
     {
       path: 'requested-bookings',
       element:<RequestedBookings></RequestedBookings>
+    },
+    {
+      path: 'user-management',
+      element: <UserMgt></UserMgt>
     }
     
   ]

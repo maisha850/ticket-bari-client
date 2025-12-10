@@ -4,9 +4,11 @@ import { FcGoogle } from 'react-icons/fc';
 import { Link, Navigate, useLocation, useNavigate } from 'react-router';
 import useAuth from '../../Hooks/useAuth';
 import { toast } from 'react-toastify';
+import useAxiosSecure from '../../Hooks/useAxiosSecure';
 
 const SignIn = () => {
   const { signIn, signInWithGoogle } = useAuth()
+  const instance = useAxiosSecure()
   const{register , handleSubmit , formState:{errors}}=useForm()
   const location = useLocation()
   const navigate = useNavigate()
@@ -23,17 +25,24 @@ console.log(err)
 toast.error(err?.message)
 }
   }
-  const handleGoogleSignIn = async () => {
+    const handleGoogleSignIn = async () => {
       try {
         //User Registration using google
-        await signInWithGoogle()
-        toast.success('Log In Successfully!')
+       const res= await signInWithGoogle()
+         const userInfo = {
+      email : res.user.email,
+        displayName : res.user.displayName,
+         photoURL : res.user.photoURL
+  }
+        await instance.post('/users' , userInfo)
+         toast.success('Log In Successfully!')
        navigate( location.state || '/')
       } catch (err) {
         console.log(err)
         toast.error(err?.message)
       }
     }
+ 
     return (
          <div className='flex justify-center items-center  bg-white'>
       <div className='flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900'>
