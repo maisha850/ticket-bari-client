@@ -4,6 +4,7 @@ import useAxiosSecure from '../../Hooks/useAxiosSecure';
 const BookedCard = ({ticket}) => {
      const [countdown, setCountdown] = useState("");
      const instance = useAxiosSecure()
+     const departurePassed = new Date(ticket.departure) < new Date();
      //  countdown
         useEffect(() => {
         if (!ticket) return;
@@ -80,11 +81,13 @@ const handlePayment = async () => {
 </p>
         </div>
          {/* Countdown */}
-        <div className="bg-gray-100 py-3 px-5 rounded-md text-center">
+
+         { ticket.status === 'rejected' ?  null :  <div className="bg-gray-100 py-3 px-5 rounded-md text-center">
           <p className="text-gray-600 text-sm">Departure Countdown</p>
           <h3 className="text-xl font-semibold text-green-600">{countdown}</h3>
         </div>
-
+ }
+       
         {/* Route */}
         <p className="text-lg font-medium text-gray-700">
           {ticket.from} → {ticket.to}
@@ -107,10 +110,13 @@ const handlePayment = async () => {
         <div className="flex gap-4 mt-6">
        
             
-            {/* {ticket.departure === 0 ? <button className='btn btn-disabled' disabled>Book Now</button> : <button className='btn-primary'>Book Now</button>}   */}
+     
        
 {/* Open the modal using document.getElementById('ID').showModal() method */}
-{ ticket.status === "pending" && <button onClick={handlePayment} className="btn-primary">Pay Now</button> }
+{ ticket.status === "accepted" &&  <button disabled={departurePassed} onClick={handlePayment}  className={` btn-primary 
+      ${departurePassed ? "opacity-50 cursor-not-allowed" : ""}
+    `}>{departurePassed ? "payment not allowed" : "Pay Now"}</button> }
+
 
 
          

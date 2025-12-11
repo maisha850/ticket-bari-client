@@ -9,6 +9,8 @@ const AdminMenu = () => {
           <NavLink className='text-xl font-bold text-gray-600 hover:text-gray-400 flex items-center justify-center' to={'/dashboard/user-management'}>  <MdAddCircle size={20}></MdAddCircle>Manage Users</NavLink>
            <NavLink className='text-xl font-bold text-gray-600 hover:text-gray-400 flex items-center justify-center' to={'/dashboard/manage-tickets'}>  <MdAddCircle size={20}></MdAddCircle>Manage Ticket</NavLink>
         
+           <NavLink className='text-xl font-bold text-gray-600 hover:text-gray-400 flex items-center justify-center' to={'/dashboard/advertise-tickets'}>  <MdAddCircle size={20}></MdAddCircle>Advertise Tickets</NavLink>
+        
        
        </div>
         </div>

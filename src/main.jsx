@@ -24,12 +24,18 @@ import TransactionHistory from './Componants/User/TransactionHistory.jsx'
 import RequestedBookings from './Componants/Vendor/RequestedBookings.jsx'
 import UserMgt from './Componants/Admin/UserMgt.jsx'
 import ManageTicket from './Componants/Admin/ManageTicket.jsx'
+import AdvertiseTickets from './Componants/Admin/AdvertiseTickets.jsx'
+import ErrorPage from './Componants/ErrorPage.jsx'
+import Revenue from './Componants/Vendor/Revenue.jsx'
+import VendorRoute from './Componants/Routes/VendorRoute.jsx'
+import AdminRoute from './Componants/Routes/AdminRoute.jsx'
 
 const queryClient = new QueryClient()
 const router = createBrowserRouter([
 {
   path:'/',
   Component: MainLayout,
+  errorElement:<ErrorPage></ErrorPage>,
   children: [
     {
       index: true,
@@ -66,7 +72,9 @@ const router = createBrowserRouter([
     },
     {
       path:'add-tickets',
-      Component: AddTicket
+     element: <VendorRoute>
+      <AddTicket></AddTicket>
+     </VendorRoute>
     },
     {
       path:'profile',
@@ -74,7 +82,9 @@ const router = createBrowserRouter([
     },
     {
       path:'my-added-tickets',
-      element: <MyAddedTicket></MyAddedTicket>
+      element:<VendorRoute>
+         <MyAddedTicket></MyAddedTicket>
+      </VendorRoute>
     },
     {
       path: 'update-ticket/:id',
@@ -94,15 +104,33 @@ const router = createBrowserRouter([
     },
     {
       path: 'requested-bookings',
-      element:<RequestedBookings></RequestedBookings>
+      element:<VendorRoute>
+        <RequestedBookings></RequestedBookings>
+      </VendorRoute>
     },
     {
       path: 'user-management',
-      element: <UserMgt></UserMgt>
+      element: <AdminRoute>
+        <UserMgt></UserMgt>
+      </AdminRoute>
     },
     {
       path: 'manage-tickets',
-      element: <ManageTicket></ManageTicket>
+      element: <AdminRoute>
+        <ManageTicket></ManageTicket>
+      </AdminRoute>
+    },
+    {
+      path: 'advertise-tickets',
+      element: <AdminRoute>
+        <AdvertiseTickets></AdvertiseTickets>
+      </AdminRoute>
+    },
+    {
+      path: 'revenue',
+      element: <VendorRoute>
+        <Revenue></Revenue>
+      </VendorRoute>
     }
     
   ]

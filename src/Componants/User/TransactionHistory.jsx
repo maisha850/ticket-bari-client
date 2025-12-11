@@ -7,9 +7,9 @@ const TransactionHistory = () => {
        const {user}= useAuth()
     const instance = useAxiosSecure()
     const {data : payments = []}=useQuery({
-        queryKey: ['payments' , user.email],
+        queryKey: ['paymentsHistory' , user.email],
         queryFn: async()=>{
-const res = await instance.get(`/payments?email=${user.email}`)
+const res = await instance.get(`/paymentsHistory?email=${user.email}`)
 return res.data
         }
 

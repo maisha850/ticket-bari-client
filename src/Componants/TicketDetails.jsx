@@ -17,7 +17,9 @@ const TicketDetails = () => {
      const [countdown, setCountdown] = useState("");
      const bookRef = useRef(null)
      const {register, handleSubmit}=useForm()
+          const departurePassed = new Date(ticket.departure) < new Date();
 const navigate = useNavigate()
+
    useEffect(()=>{
     instance.get(`/tickets/${id}`)
     .then(res=>{
@@ -143,7 +145,9 @@ console.log(res.data)
             {/* {ticket.departure === 0 ? <button className='btn btn-disabled' disabled>Book Now</button> : <button className='btn-primary'>Book Now</button>}   */}
        
 {/* Open the modal using document.getElementById('ID').showModal() method */}
-<button className="btn-primary" onClick={handleModal}>Book Now</button>
+<button disabled={departurePassed}   className={` btn-primary 
+      ${departurePassed ? "opacity-50 cursor-not-allowed" : ""}
+    `} onClick={handleModal}>Book Now</button>
 <dialog ref={bookRef} className="modal modal-bottom sm:modal-middle">
   <div className="modal-box ">
 <form onSubmit={handleSubmit(handleBookingForm)} className='flex flex-col gap-3'>

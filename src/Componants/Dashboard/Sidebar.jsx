@@ -11,12 +11,14 @@ import useAuth from '../../Hooks/useAuth'
 import VendorMenu from '../Vendor/VendorMenu'
 import UserMenu from '../User/UserMenu'
 import AdminMenu from '../Admin/AdminMenu'
+import useRoles from '../../Hooks/useRoles'
 
 // User Menu
 
 
 const Sidebar = () => {
   const { logOut } = useAuth()
+  const{role}=useRoles()
   const [isActive, setActive] = useState(false)
 
   // Sidebar Responsive Handler
@@ -63,9 +65,12 @@ const Sidebar = () => {
           <div className='flex flex-col justify-between flex-1 mt-6'>
             {/*  Menu Items */}
             <nav>
-            <VendorMenu></VendorMenu>
-            <UserMenu></UserMenu>
-            <AdminMenu></AdminMenu>
+              {role === 'vendor' && <VendorMenu></VendorMenu> }
+              {role === 'admin' &&     <AdminMenu></AdminMenu> }
+              {role === 'user' &&     <UserMenu></UserMenu> }
+            
+        
+        
             
             </nav>
           </div>
