@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import useAxios from '../Hooks/useAxios';
 import TicketCard from './TicketCard';
+import LatestCard from './LatestCard';
 
 const LatestTickets = () => {
     const instance = useAxios()
@@ -14,10 +15,14 @@ return res.data
     })
     return (
       <div>
-        <h3 className='text-title mb-8'>Latest Tickets</h3>
+        <h3 className='text-title mb-10 mt-15'>Latest Tickets</h3>
           <div className='grid grid-cols-3 gap-8'>
             {
-                tickets.map(ticket=><TicketCard key={ticket._id} ticket={ticket}></TicketCard>)
+                tickets.map((ticket,index)=><div  key={ticket.id}
+          data-aos="fade-up"
+          data-aos-delay={index * 200}>
+                  <LatestCard ticket={ticket}></LatestCard>
+                </div>)
             }
         </div>
       </div>

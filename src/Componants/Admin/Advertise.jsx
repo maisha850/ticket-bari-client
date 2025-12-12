@@ -16,13 +16,16 @@ return res.data
     })
 //    
     return (
-        <div>
+   <div>
+    <h3 className='text-title  '>Advertise Tickets</h3>
+         <div className='grid grid-cols-3 gap-8'>
         
             
             {
                 tickets.map(ticket=><AdvertiseCard key={ticket._id} ticket={ticket} ></AdvertiseCard>)
             }
         </div>
+   </div>
     );
 };
 

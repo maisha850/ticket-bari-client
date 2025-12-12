@@ -4,6 +4,7 @@ import { Outlet } from 'react-router';
 import Footer from '../Shared/Footer';
 
 const MainLayout = () => {
+    
     return (
         <div>
             <div className='sticky top-0'>

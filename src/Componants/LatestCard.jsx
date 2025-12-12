@@ -1,37 +1,31 @@
+import React from 'react';
+import { FaBusAlt, FaCheckCircle } from 'react-icons/fa';
+import { FaArrowRight, FaClock } from 'react-icons/fa6';
+import { Link } from 'react-router';
 
-import React from "react";
-import { FaArrowRight, FaClock, FaBusAlt, FaCheckCircle } from "react-icons/fa";
-import { Link } from "react-router";
-
-const TicketCard = ({ ticket }) => {
-  const {
+const LatestCard = ({ticket}) => {
+     const {
     title,
     image,
-    departure,
-    from,
-    to,
+ 
     price,
     quantity,
     selectedPerks,
     transportType,
     _id,
   } = ticket;
-
-  return (
-    <div className="w-full  rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all ">
+    return (
+         <div className="w-full  rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all ">
 
       {/* Header Image */}
       <div className="">
         <img
           src={image}
           alt={title}
-          className="w-full h-56 object-cover"
+          className="w-full h-60 object-cover"
         />
 
-        {/* Gradient Overlay */}
-     
-
-        {/* Title Over Image */}
+   
         
       </div>
 
@@ -40,15 +34,10 @@ const TicketCard = ({ ticket }) => {
 <h2 className=" text-2xl  font-semibold  drop-shadow-md">
           {title}
         </h2>
-        {/* Route */}
-        <div className="flex items-center justify-between text-lg font-semibold ">
-          <span>{from}</span>
-          <FaArrowRight className="text-blue-500 text-xl" />
-          <span>{to}</span>
-        </div>
+      
 
         {/* Transport Type */}
-        <div className="flex items-center gap-2  px-3 py-1 rounded-full w-fit">
+        <div className="flex items-center gap-2 ">
           <FaBusAlt className="text-green-500" />
           <span className="font-medium">{transportType}</span>
         </div>
@@ -80,11 +69,7 @@ const TicketCard = ({ ticket }) => {
           </div>
         </div>
 
-        {/* Departure */}
-        <div className="flex items-center gap-2 text-gray-600">
-          <FaClock className="text-blue-500 text-lg" />
-          <p className="font-medium">{departure}</p>
-        </div>
+     
 
         {/* Button */}
         <Link
@@ -96,8 +81,7 @@ const TicketCard = ({ ticket }) => {
 
       </div>
     </div>
-  );
+    );
 };
 
-export default TicketCard;
-
+export default LatestCard;

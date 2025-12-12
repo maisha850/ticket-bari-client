@@ -1,7 +1,9 @@
 import React from 'react';
 import useAuth from '../../Hooks/useAuth';
+import useRoles from '../../Hooks/useRoles';
 
 const Profile = () => {
+  const {role}=useRoles()
     const{user}=useAuth()
     return (
           <div className='flex justify-center items-center h-screen'>
@@ -21,7 +23,7 @@ const Profile = () => {
           </a>
 
           <p className='p-2 px-4 text-xs text-white bg-yellow-500 rounded-full'>
-            Customer
+            {role}
           </p>
           <p className='mt-2 text-xl font-medium text-gray-800 '>
             User Id: {user?.uid}

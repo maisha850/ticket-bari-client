@@ -1,66 +1,71 @@
-import React from 'react';
-import { FaFacebookF, FaLinkedinIn, FaVoicemail, FaXTwitter } from 'react-icons/fa6';
-import { Link } from 'react-router';
-import Logo from './Logo';
-
-
-
+import React from "react";
+import { Link } from "react-router";
+import { FaFacebook, FaEnvelope, FaPhone } from "react-icons/fa";
 
 const Footer = () => {
-    
- 
-    return (
-         <div>
-           <div className='bg-[#002a45]  pt-20 pb-5 lg:pl-0 pl-4'>
-            <div className='flex lg:flex-row md:gap-0 gap-8 flex-col justify-center'>
-        <div className='mr-26'>
-            <Link to="/" className='flex items-center'>
- <a  className=" text-xl  uppercase font-bold"></a>
-<Logo></Logo>
-    </Link>
-            <p className='text-white w-[350px] mt-3'>TicketBari is your trusted platform for easy and secure online ticket booking. Travel smarter with fast booking, real-time updates, and seamless service.</p>
-
-        </div>
-        <div className='mr-26'>
-            <h3 className='text-xl font-medium text-white mb-2'>Company</h3>
-            <ul className='text-white list-none space-y-2'>
-                <li>About us</li>
-            <li>Our Mission</li>
-            <li>Contact Saled</li>
-            <li>Press kit</li>
-            <li>Blog</li>
-
-            </ul>
-        </div>
+  return (
+    <footer className="bg-blue-950 text-base-content mt-12">
       
-        <div className='mr-26'>
-            <h3 className='text-xl font-medium text-white mb-2'>Inforamation</h3>
-            <ul className='text-white list-none space-y-2'>
-                <li>Privacy Policy</li>
-            <li>Terms & Conditions</li>
-            <li>Join us</li>
-            <li>Cookie Policy</li>
-            </ul>
-        </div>
+      {/* Main Footer */}
+      <div className="max-w-7xl mx-auto px-6 py-14 grid grid-cols-1 md:grid-cols-4 gap-10">
 
+        {/* Column 1 – Logo + Description */}
         <div>
-            <h3 className='text-xl font-medium text-white mb-2'>Contact Info</h3>
-            <ul className='flex items-center gap-5 mt-4  '>
-                <FaVoicemail size={25} className='bg-white text-black rounded-full p-[2px]' />
-           <FaLinkedinIn size={25} className='bg-white text-black rounded-full p-[2px]' /> 
-         <FaFacebookF size={25} className='bg-white text-black rounded-full p-[2px]' /> 
-         
-      
-            </ul>
+          <h2 className="text-2xl font-bold text-primary">TicketBari</h2>
+          <p className="mt-3 text-sm leading-relaxed text-white">
+            Book bus, train, launch & flight tickets easily — all in one platform.
+          </p>
         </div>
-      
 
-            
+        {/* Column 2 – Quick Links */}
+        <div>
+          <h3 className="text-lg font-semibold mb-3 text-primary">Quick Links</h3>
+          <ul className="space-y-2 text-sm text-white">
+            <li><Link to="/" className="hover:text-primary">Home</Link></li>
+            <li><Link to="/all-tickets" className="hover:text-primary">All Tickets</Link></li>
+            <li><Link to="/" className="hover:text-primary">Contact Us</Link></li>
+            <li><Link to="/" className="hover:text-primary">About</Link></li>
+          </ul>
         </div>
-          <h3 className='text-white text-center mt-20 '>©2025 TicketBari. All rights reserved.</h3>
-        </div> 
+
+        {/* Column 3 – Contact Info */}
+        <div>
+          <h3 className="text-lg font-semibold mb-3 text-primary">Contact Info</h3>
+          <ul className="space-y-2 text-sm text-white">
+            <li className="flex items-center gap-2">
+              <FaEnvelope /> ticketbari@gmail.com
+            </li>
+            <li className="flex items-center gap-2">
+              <FaPhone/> +880 1234-567890
+            </li>
+            <li className="flex items-center gap-2">
+              <FaFacebook/>
+              <a href="#" className="hover:text-primary">Facebook Page</a>
+            </li>
+          </ul>
         </div>
-    );
+
+        {/* Column 4 – Payment Methods */}
+        <div>
+          <h3 className="text-lg font-semibold mb-3 text-primary">Payment Methods</h3>
+          <div className="flex items-center gap-4">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGMa0R1O63GS_QNt6GxVzHJHSRBksDfSyiiw&s"
+              alt="Stripe"
+              className="h-8 rounded-xl"
+            />
+          </div>
+        </div>
+
+      </div>
+
+      {/* Bottom Bar */}
+      <div className="py-4 bg-blue-950 text-center text-sm text-white">
+        © 2025 <span className="font-semibold">TicketBari</span>. All rights reserved.
+      </div>
+
+    </footer>
+  );
 };
 
 export default Footer;

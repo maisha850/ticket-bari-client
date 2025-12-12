@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'react-router'
+import { Link, NavLink } from 'react-router'
 
 // Icons
 import { GrLogout } from 'react-icons/gr'
@@ -12,6 +12,7 @@ import VendorMenu from '../Vendor/VendorMenu'
 import UserMenu from '../User/UserMenu'
 import AdminMenu from '../Admin/AdminMenu'
 import useRoles from '../../Hooks/useRoles'
+import { MdAddCircle } from 'react-icons/md'
 
 // User Menu
 
@@ -46,7 +47,7 @@ const Sidebar = () => {
 
       {/* Sidebar */}
       <div
-        className={`z-10 md:fixed flex flex-col justify-between overflow-x-hidden bg-gray-100 w-64 space-y-6 px-2 py-4 absolute inset-y-0 left-0 transform ${
+        className={`z-10 md:fixed flex flex-col justify-between overflow-x-hidden shadow-2xl w-64 space-y-6 px-2 py-4 absolute inset-y-0 left-0 transform ${
           isActive && '-translate-x-full'
         }  md:translate-x-0  transition duration-200 ease-in-out`}
       >
@@ -65,6 +66,7 @@ const Sidebar = () => {
           <div className='flex flex-col justify-between flex-1 mt-6'>
             {/*  Menu Items */}
             <nav>
+                     <NavLink className='text-xl font-bold text-gray-600 hover:text-gray-400 flex items-center justify-center' to={'/dashboard/profile'}>  <MdAddCircle size={20}></MdAddCircle>Profile</NavLink>
               {role === 'vendor' && <VendorMenu></VendorMenu> }
               {role === 'admin' &&     <AdminMenu></AdminMenu> }
               {role === 'user' &&     <UserMenu></UserMenu> }
