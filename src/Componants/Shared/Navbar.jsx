@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Logo from './Logo';
 import { Link, NavLink } from 'react-router';
 import useAuth from '../../Hooks/useAuth';
@@ -17,6 +17,19 @@ const Navbar = () => {
     </>
    }
     </>
+      const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+
+
+  useEffect(() => {
+    const html = document.querySelector("html");
+    html.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+
+  const handleTheme = (checked) => {
+    setTheme(checked ? "dark" : "light");
+  };
     const handleLogOut=async()=>{
 await logOut()
 toast.success('Log Out Successfully!')
@@ -42,6 +55,12 @@ toast.success('Log Out Successfully!')
     </ul>
   </div>
   <div className="navbar-end">
+     <input
+           onChange={(e) => handleTheme(e.target.checked)}
+           type="checkbox"
+           defaultChecked={localStorage.getItem('theme') === "dark"}
+           className="toggle"/>
+
      { user && <div>
       <div className="dropdown dropdown-hover dropdown-center">
   <div tabIndex={0} role="button" className=" m-1"> <img className={`w-10 h-10 rounded-full`} src={user?.photoURL || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFuVWYC8V8zN-N8UpwDUvuQ8eYidEUQfi7U0rJ2JHLKQ&s'} alt="" /></div>

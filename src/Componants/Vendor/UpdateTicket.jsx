@@ -93,7 +93,7 @@ return res.data
           <option value="">Select Transport Type</option>
           <option>Bus</option>
           <option>Train</option>
-          <option>Plane</option>
+          <option>Flight</option>
           
         </select>
 

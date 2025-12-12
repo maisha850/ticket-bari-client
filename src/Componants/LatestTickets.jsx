@@ -13,11 +13,14 @@ return res.data
         }
     })
     return (
-        <div>
+      <div>
+        <h3 className='text-title mb-8'>Latest Tickets</h3>
+          <div className='grid grid-cols-3 gap-8'>
             {
                 tickets.map(ticket=><TicketCard key={ticket._id} ticket={ticket}></TicketCard>)
             }
         </div>
+      </div>
     );
 };
 

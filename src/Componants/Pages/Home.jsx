@@ -8,9 +8,11 @@ const Home = () => {
     return (
         <div>
            <Banner></Banner> 
-           <LatestTickets></LatestTickets>
+         <div className='max-w-7xl mx-auto py-15'>
+              <LatestTickets></LatestTickets>
            <AdvertiseCard></AdvertiseCard>
            <Advertise></Advertise>
+         </div>
         </div>
     );
 };

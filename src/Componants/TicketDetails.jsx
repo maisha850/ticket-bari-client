@@ -96,7 +96,7 @@ console.log(res.data)
       <img 
         src={ticket.image} 
         alt={ticket.title} 
-        className="w-full  object-cover"
+        className="max-w-xl  object-cover"
       />
 
       {/* Content */}
@@ -124,9 +124,10 @@ console.log(res.data)
         <div className="grid grid-cols-2 gap-4 text-gray-700">
           <p><span className="font-semibold">Price:</span> ৳{ticket.price}</p>
           <p><span className="font-semibold">Available Tickets:</span> {ticket.quantity}</p>
-          <p><span className="font-semibold">Departure Date:</span> {ticket.departure}</p>
-          
+      
         </div>
+            <p><span className="font-semibold">Departure Date:</span> {ticket.departure}</p>
+          
 
         {/* Perks / Features */}
         <div className="mt-4">

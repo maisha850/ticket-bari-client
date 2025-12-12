@@ -1,5 +1,10 @@
 @import "tailwindcss";
-@plugin "daisyui";
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark;
+}
+
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 a.active{
     @apply  text-yellow-500  font-medium
   
@@ -18,6 +23,6 @@ a.active{
 .btn-outlines:hover{
   @apply  bg-gradient-to-br from-red-800 hover:via-amber-700 hover:to-stone-950
 }
-.text-primary{
-   @apply text-amber-500
+.text-title{
+   @apply text-6xl font-bold text-yellow-400
 }
