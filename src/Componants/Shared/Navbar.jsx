@@ -54,7 +54,7 @@ toast.success('Log Out Successfully!')
       {links}
     </ul>
   </div>
-  <div className="navbar-end">
+  <div className="navbar-end flex gap-3">
      <input
            onChange={(e) => handleTheme(e.target.checked)}
            type="checkbox"

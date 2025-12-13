@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from "motion/react";
-import banner from '../assets/premium_photo-1723464014732-f09ee387330b.avif'
-import banner2 from '../assets/ChatGPT Image Dec 6, 2025, 12_33_22 PM.png'
+
+import banner from '../assets/ChatGPT Image Dec 13, 2025, 10_24_42 PM.png'
+import { Link } from 'react-router';
 
 const Banner = () => {
    return (
@@ -10,7 +11,7 @@ const Banner = () => {
 animate={{ opacity: 1, y: 0 }}
 transition={{ duration: 0.8 }} className='w-full block mx-auto bg-center bg-cover bg-no-repeat h-200' style={{
     backgroundImage:
-      `url(${banner2})`,
+      `url(${banner})`,
   }}>
 <div className=" pt-40 space-y-6 ml-20 ">
 {/* Animated Title */}
@@ -20,7 +21,7 @@ animate={{ opacity: 1, y: 0 }}
 transition={{ duration: 0.8 }}
 className="text-5xl md:text-6xl  font-bold leading-tight"
 >
-Welcome to <span className="text-yellow-300">TicketBari</span>
+Welcome to <span className="text-title">TicketBari</span>
 </motion.h1>
 
 
@@ -42,9 +43,9 @@ animate={{ opacity: 1, y: 0 }}
 transition={{ delay: 0.7, duration: 0.8 }}
 className="flex  gap-4 mt-6"
 >
-<button className="px-6 py-3 text-lg rounded-2xl font-semibold shadow-lg bg-yellow-400 text-black hover:bg-yellow-300">
+<Link to={'/all-tickets'} className="px-6 pt-3 bg-gradient-to-br from-green-400 to-blue-800  text-black font-semibold rounded-lg shadow-md transition duration-200 ">
 Book Now
-</button>
+</Link>
 <button className="px-6 py-3 text-lg rounded-2xl font-semibold shadow-lg bg-white text-blue-600 hover:bg-blue-100">
 Learn More
 </button>

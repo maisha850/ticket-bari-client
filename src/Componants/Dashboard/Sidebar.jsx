@@ -5,6 +5,7 @@ import { Link, NavLink } from 'react-router'
 import { GrLogout } from 'react-icons/gr'
 
 import { AiOutlineBars } from 'react-icons/ai'
+import { CgProfile } from "react-icons/cg";
 
 import Logo from '../Shared/Logo'
 import useAuth from '../../Hooks/useAuth'
@@ -55,7 +56,7 @@ const Sidebar = () => {
           {/* Top Content */}
           <div>
             {/* Logo */}
-            <div className='w-full hidden md:flex px-4 py-2 shadow-lg rounded-lg justify-center items-center bg-yellow-400 mx-auto'>
+            <div className='w-full hidden md:flex px-4 py-2 shadow-lg rounded-lg justify-center items-center bg-blue-950 mx-auto'>
         
              <Logo></Logo>
               
@@ -66,7 +67,7 @@ const Sidebar = () => {
           <div className='flex flex-col justify-between flex-1 mt-6'>
             {/*  Menu Items */}
             <nav>
-                     <NavLink className='text-xl font-bold text-gray-600 hover:text-gray-400 flex items-center justify-center' to={'/dashboard/profile'}>  <MdAddCircle size={20}></MdAddCircle>Profile</NavLink>
+                   
               {role === 'vendor' && <VendorMenu></VendorMenu> }
               {role === 'admin' &&     <AdminMenu></AdminMenu> }
               {role === 'user' &&     <UserMenu></UserMenu> }
@@ -80,6 +81,7 @@ const Sidebar = () => {
           {/* Bottom Content */}
           <div>
             <hr />
+              <NavLink className='text-xl my-5 font-bold text-gray-500 hover:text-gray-400 flex items-center gap-2 justify-start' to={'/dashboard/profile'}>  <CgProfile size={20}></CgProfile>Profile</NavLink>
 
             {/* <MenuItem
               icon={FcSettings}
@@ -88,7 +90,7 @@ const Sidebar = () => {
             /> */}
             <button
               onClick={logOut}
-              className='flex cursor-pointer w-full items-center px-4 py-2 mt-5 text-gray-600 hover:bg-gray-300   hover:text-gray-700 transition-colors duration-300 transform'
+              className='flex cursor-pointer w-full items-center  py-2 mt-5 text-gray-500 hover:bg-gray-300   hover:text-gray-700 transition-colors duration-300 transform'
             >
               <GrLogout className='w-5 h-5' />
 

@@ -44,7 +44,7 @@ toast.error(err?.message)
     }
  
     return (
-         <div className='flex justify-center items-center  bg-white'>
+         <div className='flex justify-center items-center py-15 '>
       <div className='flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900'>
         <div className='mb-8 text-center'>
           <h1 className='my-3 text-4xl font-bold'>Log In</h1>
@@ -103,14 +103,14 @@ toast.error(err?.message)
           <div>
             <button
               type='submit'
-              className='bg-yellow-400 w-full rounded-md py-3'
+              className='btn-primary w-full rounded-md py-3'
             >
               Log In
             </button>
           </div>
         </form>
         <div className='space-y-1'>
-          <button className='text-xs hover:underline hover:text-lime-500 text-gray-400 cursor-pointer'>
+          <button className='text-xs hover:underline hover:text-primary text-gray-400 cursor-pointer'>
             Forgot password?
           </button>
         </div>
@@ -134,7 +134,7 @@ toast.error(err?.message)
           <Link
            
             to='/register'
-            className='hover:underline hover:text-lime-500 text-gray-600'
+            className='hover:underline hover:text-primary text-gray-600'
           >
            Register
           </Link>

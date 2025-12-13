@@ -152,13 +152,13 @@ const Revenue = () => {
   }
 
   return (
-    <div className="bg-white shadow-md rounded-xl p-6">
+    <div className=" shadow-md rounded-xl p-6">
       <h2 className="text-2xl font-semibold text-center mb-6 text-indigo-600">
-        System Statistics Overview
+         Statistical Overview
       </h2>
 
       {/* Chart */}
-      <div className="w-full h-80">
+      <div className="w-200 h-80">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={data}>
             <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />

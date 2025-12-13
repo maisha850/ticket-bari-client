@@ -122,7 +122,7 @@ const handleReject = async (id) => {
                                 ticket.verificationStatus === 'approved' ? <button className='btn btn-xs btn-success '>Approved</button> : <button onClick={()=>handleApprove(ticket._id)} className='btn btn-xs btn-accent'>Approve</button> 
                               }  
                               {
-                                ticket.verificationStatus === 'rejected' ? <button className='btn btn-xs btn-success '>Rejected</button> : <button onClick={()=>handleReject(ticket._id)} className='btn btn-xs btn-accent'>Reject</button> 
+                                ticket.verificationStatus === 'rejected' ? <button className='btn btn-xs btn-error '>Rejected</button> : <button onClick={()=>handleReject(ticket._id)} className='btn btn-xs btn-info'>Reject</button> 
                               }  
                                 
                                </td>

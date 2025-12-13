@@ -1,10 +1,17 @@
 import React from 'react';
 import TicketCard from '../TicketCard';
+import useRoles from '../../Hooks/useRoles';
+import AdminDashboardHome from '../Admin/AdminDashboardHome';
+import VendorDashboardHome from '../Vendor/VendorDashboardHome';
+import UserDashboardHome from '../User/UserDashboardHome';
 
 const DashboardHome = () => {
+    const{role}=useRoles()
     return (
-        <div className='grid grid-cols-3 gap-8'>
-     
+        <div >
+     {role === 'admin' && <AdminDashboardHome></AdminDashboardHome>}
+     {role === 'vendor' && <VendorDashboardHome></VendorDashboardHome>}
+     {role === 'user' && <UserDashboardHome></UserDashboardHome>}
         </div>
     );
 };

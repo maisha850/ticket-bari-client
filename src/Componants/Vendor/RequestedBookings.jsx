@@ -72,7 +72,7 @@ return res.data
            } 
 
            {
-            payment.status === 'rejected' ? <p className='text-green-500'>Rejected</p> : <button onClick={()=>handleReject(payment._id)} className='btn btn-sm btn-success'>Reject</button>
+            payment.status === 'rejected' ? <p className='text-red-500'>Rejected</p> : <button onClick={()=>handleReject(payment._id)} className='btn btn-sm btn-error'>Reject</button>
            }
         
         </td>

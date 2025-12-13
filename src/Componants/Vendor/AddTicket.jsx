@@ -129,7 +129,7 @@ const AddTicket = () => {
 
   return (
     <div className="max-w-3xl mx-auto p-6  rounded-xl shadow-xl border border-gray-300 mt-10">
-      <h2 className="text-3xl font-bold text-center mb-6 text-yellow-500">
+      <h2 className="text-3xl font-bold text-center mb-6 text-green-500">
         🎟 Add New Ticket
       </h2>
 
@@ -225,7 +225,7 @@ const AddTicket = () => {
                   name='image'
                   id='image'
                 />
-                <div className='bg-yellow-500 text-white border border-gray-300 rounded font-semibold cursor-pointer p-1 px-3 hover:bg-yellow-400'>
+                <div className='bg-green-500 text-white border border-gray-300 rounded font-semibold cursor-pointer p-1 px-3 hover:bg-yellow-400'>
                   Upload Image
                 </div>
               </label>
@@ -255,7 +255,7 @@ const AddTicket = () => {
         ) : (
           <button
             type="submit"
-            className="w-full px-6 py-2 bg-yellow-400 hover:bg-yellow-500 text-black font-semibold rounded-lg shadow-md transition duration-200"
+            className="btn-primary"
           >
             Add Ticket
           </button>

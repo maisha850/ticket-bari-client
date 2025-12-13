@@ -50,10 +50,10 @@ toast.error(err?.message)
   }
     
     return (
-       <div className='flex justify-center items-center min-h-screen '>
+       <div className='flex justify-center items-center min-h-screen py-15 '>
       <div className='flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900'>
         <div className='mb-8 text-center'>
-          <h1 className='my-3 text-4xl font-bold'>Register</h1>
+          <h1 className='my-3 text-4xl font-bold '>Register</h1>
           <p className='text-sm text-gray-400'>Welcome to TicketBari</p>
         </div>
         <form
@@ -136,7 +136,7 @@ toast.error(err?.message)
           <div>
             <button
               type='submit'
-              className='bg-yellow-400 w-full rounded-md py-3 '
+              className='block btn-primary w-full rounded-md py-3 '
             >
        Register
             </button>
@@ -160,7 +160,7 @@ toast.error(err?.message)
           Already have an account?{' '}
           <Link
             to='/logIn'
-            className='hover:underline hover:text-lime-500 text-gray-600'
+            className='hover:underline hover:text-primary text-gray-600'
           >
             Login
           </Link>

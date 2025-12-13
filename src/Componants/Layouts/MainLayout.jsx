@@ -7,7 +7,7 @@ const MainLayout = () => {
     
     return (
         <div>
-            <div className='sticky top-0'>
+            <div className='sticky z-10 top-0'>
                 <Navbar></Navbar>
             </div>
            <main className=''>
