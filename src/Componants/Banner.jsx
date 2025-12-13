@@ -115,7 +115,7 @@ const Banner = () => {
             className="h-full w-full bg-cover bg-center flex items-center"
             style={{
               backgroundImage:
-                "linear-gradient(to bottom right, rgba(34,197,94,0.6), rgba(30,64,175,0.7)), url('https://images.unsplash.com/photo-1503376780353-7e6692767b70')",
+                "linear-gradient(to bottom right, rgba(34,197,94,0.6), rgba(30,64,175,0.7)), url('https://images.unsplash.com/photo-1547380243-c25d8e5dbe5b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjJ8fHRyYWlufGVufDB8fDB8fHww')",
             }}
           >
             <div className="max-w-7xl mx-auto px-6 ">
