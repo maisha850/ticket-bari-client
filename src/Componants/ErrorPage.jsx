@@ -1,9 +1,15 @@
 import React from 'react';
+import { MdError } from 'react-icons/md';
+import { Link } from 'react-router';
 
 const ErrorPage = () => {
     return (
-        <div>
-            <img className='w-full max-h-screen' src="https://www.elegantthemes.com/blog/wp-content/uploads/2021/06/shutterstock_1075475231.jpg" alt="" />
+           <div className='min-h-screen flex justify-center items-center flex-col gap-4'>
+            <MdError  color='#1E40AF' size={100} />
+            <h3 className='text-primary font-black text-9xl'>404</h3>
+            <p className='text-primary text-2xl font-semibold'>Sorry, we couldn't find this page</p>
+            <Link to={'/'} className=' btn-primary'>Back to Home</Link>
+            
         </div>
     );
 };

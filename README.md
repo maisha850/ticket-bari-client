@@ -1,16 +1,54 @@
-# React + Vite
+# TicketBari
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## Purpose of TicketBari
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+TicketBari is a modern transport ticket booking platform designed to make travel planning simple, fast, and reliable. Its primary purpose is to connect passengers with trusted transport providers, enabling users to search, compare, and book tickets online without the hassle of physical counters or long queues.
 
-## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Live Link
 
-## Expanding the ESLint configuration
+## Key Features of TicketBari
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Dynamic Homepage with hero slider, admin-controlled advertisements (max 6), and latest ticket listings
+
+- Admin-Verified Ticket System ensuring only approved tickets are visible to users
+
+- Secure Ticket Booking Flow with quantity validation, countdown timer, and booking status tracking
+
+- Stripe Payment Integration with real-time price calculation and automatic ticket quantity updates
+
+- User Dashboard for managing bookings, payments, and transaction history
+
+- Vendor Dashboard for adding tickets, handling booking requests, and viewing revenue analytics
+
+- Admin Dashboard for ticket approval, user role management, fraud detection, and ticket advertising
+
+- Role-Based Access Control with protected routes for User, Vendor, and Admin
+
+
+## NPM Packages Used
+
+- react router
+
+- tailwindcss
+
+- daisyui
+
+- react-icons 
+
+- swiper 
+
+- aos 
+
+-  firebase 
+
+-   axios 
+
+-  @tanstack/react-query 
+
+- @stripe/stripe-js 
+
+-  react-fast-marquee
+
+- recharts 

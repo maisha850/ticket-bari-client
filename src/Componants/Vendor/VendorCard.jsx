@@ -37,7 +37,7 @@ const navigate = useNavigate()
    }
     return (
         <div>
-                <div className="w-full  bg-white border border-gray-200 rounded-xl shadow-lg overflow-hidden transform transition-all hover:scale-[1.02] hover:shadow-2xl">
+                <div className="w-full    rounded-xl shadow-lg overflow-hidden transform transition-all hover:scale-[1.02] hover:shadow-2xl">
 
       {/* Image */}
       <img
@@ -50,7 +50,7 @@ const navigate = useNavigate()
       <div className="p-5 space-y-4">
 
         {/* Ticket Title */}
-        <h2 className="text-xl font-semibold text-gray-800">
+        <h2 className="text-xl font-semibold ">
          {title}
         </h2>
 
@@ -62,21 +62,21 @@ const navigate = useNavigate()
         </div>
 
         {/* Transport Type */}
-        <div className="flex items-center gap-2 text-gray-600">
+        <div className="flex items-center gap-2 ">
           <FaBus className="text-green-500" />
           <span>{transportType}</span>
         </div>
 
         {/* Price + Quantity */}
-        <div className="flex items-center justify-between text-gray-700">
+        <div className="flex items-center justify-between ">
           <p className="text-lg font-bold text-green-600">৳ {price} / ticket</p>
           <p className="text-sm">Available: <span className="font-semibold">{quantity}</span></p>
         </div>
 
         {/* Perks */}
         <div className="space-y-1">
-          <p className="text-sm font-medium text-gray-700 mb-1">Included Perks:</p>
-          <div className="flex flex-wrap gap-3 text-gray-600 text-sm">
+          <p className="text-sm font-medium  mb-1">Included Perks:</p>
+          <div className="flex flex-wrap gap-3  text-sm">
             {
                 selectedPerks.map(perk=><span className="flex items-center gap-1"><FaCheckCircle className="text-green-500" /> {perk}</span>)
             }
@@ -87,7 +87,7 @@ const navigate = useNavigate()
 
         {/* Departure Info */}
         <div className='flex justify-between'>
-            <div className="flex items-center gap-2 text-gray-600">
+            <div className="flex items-center gap-2 ">
           <FaClock className="text-green-500" />
           <p>Departure: {departure}</p>
         </div>
@@ -99,13 +99,13 @@ const navigate = useNavigate()
             <div className=''>
               <p className='flex gap-1'>
                 Vendor:
-                <span className='font-bold text-gray-600 '>
+                <span className='font-bold  '>
                   {vendorName}
                 </span>
               </p>
               <p className='flex gap-1'>
                 Email:
-                <span className='font-bold text-gray-600 '>{vendorEmail}</span>
+                <span className='font-bold  '>{vendorEmail}</span>
               </p>
 
            
