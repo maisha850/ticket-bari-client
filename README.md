@@ -6,7 +6,7 @@
 TicketBari is a modern transport ticket booking platform designed to make travel planning simple, fast, and reliable. Its primary purpose is to connect passengers with trusted transport providers, enabling users to search, compare, and book tickets online without the hassle of physical counters or long queues.
 
 
-Live Link:  https://velvety-meerkat-642ed2.netlify.app
+Live Link:  https://stunning-banoffee-bd4ddc.netlify.app
 
 ## Key Features of TicketBari
 
