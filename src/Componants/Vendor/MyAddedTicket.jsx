@@ -16,7 +16,7 @@ return res.data
     return (
         <div>
             <h3 className='text-4xl font-bold mb-5'>My Added Tickets: {myAddedTickets.length}</h3>
-            <div className='grid grid-cols-3 gap-15'>
+            <div className='grid md:grid-cols-2 lg:grid-cols-3 p-4 md:p-0 gap-15'>
                 {
                 myAddedTickets.map(ticket=><VendorCard key={ticket._id} ticket={ticket}></VendorCard>)
             }

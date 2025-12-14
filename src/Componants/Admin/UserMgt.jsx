@@ -298,18 +298,18 @@ const UserMgt = () => {
                                         <span className="px-2 py-1 bg-green-600 text-white rounded text-xs">{user.role}</span>
                                     )}
                                 </td>
-                                <td className='flex gap-2'>
-                                    <button onClick={() => handleMakeAdmin(user)} className='btn btn-xs btn-warning'>Make Admin</button>
-                                    <button onClick={() => handleMakeVendor(user)} className='btn btn-xs btn-accent'>Make Vendor</button>
+                                <td className='md:flex space-y-4 gap-2'>
+                                    <button onClick={() => handleMakeAdmin(user)} className='btn md:btn-xs btn-warning'>Make Admin</button>
+                                    <button onClick={() => handleMakeVendor(user)} className='btn md:btn-xs btn-accent'>Make Vendor</button>
 
                                     {/* Fraud Actions */}
                                     {user.role === 'vendor' && !user.isFraud && (
-                                        <button onClick={() => handleMarkFraud(user)} className="btn btn-xs btn-error">
+                                        <button onClick={() => handleMarkFraud(user)} className="btn text-xs  md:btn-xs btn-error">
                                             Mark as Fraud
                                         </button>
                                     )}
                                     {user.isFraud && (
-                                        <button onClick={() => handleUndoFraud(user)} className="btn btn-xs btn-success">
+                                        <button onClick={() => handleUndoFraud(user)} className="btn md:btn-xs btn-success">
                                             Undo Fraud
                                         </button>
                                     )}

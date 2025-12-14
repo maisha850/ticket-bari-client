@@ -57,13 +57,13 @@ const navigate = useNavigate()
         {/* From → To */}
         <div className="flex items-center justify-between text-lg font-medium text-yellow-600">
           <span>{from}</span>
-          <FaArrowRight className="text-yellow-500" />
+          <FaArrowRight className="text-green-500" />
           <span>{to}</span>
         </div>
 
         {/* Transport Type */}
         <div className="flex items-center gap-2 text-gray-600">
-          <FaBus className="text-yellow-500" />
+          <FaBus className="text-green-500" />
           <span>{transportType}</span>
         </div>
 
@@ -88,7 +88,7 @@ const navigate = useNavigate()
         {/* Departure Info */}
         <div className='flex justify-between'>
             <div className="flex items-center gap-2 text-gray-600">
-          <FaClock className="text-yellow-500" />
+          <FaClock className="text-green-500" />
           <p>Departure: {departure}</p>
         </div>
        <button className='btn btn-xs border-red-400 btn-outline'> {verificationStatus}</button>
@@ -111,7 +111,10 @@ const navigate = useNavigate()
            
             </div>
             <div className='flex justify-between'>
-                <Link ticket={ticket} to={`/dashboard/update-ticket/${_id}`}  className='btn-primary'>Update</Link>
+              {
+                ticket.verificationStatus === 'approved' || ticket.verificationStatus === 'pending' ? <Link ticket={ticket} to={`/dashboard/update-ticket/${_id}`}  className='btn-primary'>Update</Link> : <button className='btn btn-disabled'>Update</button>
+              }
+                
                 <button onClick={()=>handleDelete(_id)} className='btn btn-outline'>Delete</button>
             </div>
      

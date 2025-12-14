@@ -34,7 +34,7 @@ const FAQ = () => {
 
       {/* LEFT – FAQ */}
       <div>
-        <h2 className="text-title -ml-20 mb-5">
+        <h2 className="text-title md:-ml-20 mb-5">
           Ticket Bari – FAQs
         </h2>
 

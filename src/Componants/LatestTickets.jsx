@@ -16,7 +16,7 @@ return res.data
     return (
       <div>
         <h3 className='text-title mb-10 mt-15'>Latest Tickets</h3>
-          <div className='grid grid-cols-3 gap-8'>
+          <div className='grid md:grid-cols-2 lg:grid-cols-3 p-4 md:p-0 gap-8'>
             {
                 tickets.map((ticket,index)=><div  key={ticket.id}
           data-aos="fade-up"

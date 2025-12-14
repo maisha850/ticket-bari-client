@@ -19,7 +19,7 @@ setPaymentInfo(res.data)
     },[instance,sessionId])
     console.log(paymentInfo)
     return (
-        <div className='mt-20 bg-gray-100 w-200 p-4 rounded-2xl mx-auto'>
+        <div className='mt-20 bg-gray-100 md:w-200 p-4 rounded-2xl mx-auto'>
             <div className='space-y-3 flex flex-col justify-center items-center '>
             <img className='w-20 h-20 rounded-full' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4Nz8k7J1TZMXsTykqt0avNLQbPay4OpqibUHjb4flng&s" alt="" />
           <h3 className='text-4xl font-bold text-green-500'>Payment SuccessFull</h3>

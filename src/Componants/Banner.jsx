@@ -74,6 +74,7 @@ import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import img from '../assets/ChatGPT Image Dec 6, 2025, 12_33_22 PM.png'
 
 const Banner = () => {
   return (
@@ -92,7 +93,7 @@ const Banner = () => {
             className="h-full w-full bg-cover bg-center flex items-center"
             style={{
               backgroundImage:
-                "linear-gradient(to bottom right, rgba(34,197,94,0.5), rgba(30,64,175,0.6)), url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957')",
+                `linear-gradient(to bottom right, rgba(34,197,94,0.5), rgba(30,64,175,0.6)), url(${img})`,
             }}
           >
             <div className="max-w-7xl mx-auto px-6 ">

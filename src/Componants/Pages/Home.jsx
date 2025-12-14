@@ -40,7 +40,7 @@ const Home = () => {
         </Marquee>
       </div>
 
-      <div data-aos="fade-left" data-aos-delay="300" className='mt-10'>
+      <div data-aos="fade-left" data-aos-delay="300" className=' max-w-7xl mx-auto py-15'>
         <FAQ />
       </div>
     </div>

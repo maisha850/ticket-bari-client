@@ -61,7 +61,7 @@ const handlePayment = async () => {
 
     return (
          <div>
-             <div className=" max-w-3xl mx-auto bg-white p-8 shadow-xl rounded-lg overflow-hidden mt-10 flex gap-8">
+             <div className=" max-w-3xl mx-auto bg-white p-8 shadow-xl rounded-lg overflow-hidden mt-10 md:flex gap-8">
       {/* Banner Image */}
       <img 
         src={ticket.image} 

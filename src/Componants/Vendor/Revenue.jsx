@@ -158,7 +158,7 @@ const Revenue = () => {
       </h2>
 
       {/* Chart */}
-      <div className="w-200 h-80">
+      <div className="md:w-200 w-100 h-80">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={data}>
             <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
