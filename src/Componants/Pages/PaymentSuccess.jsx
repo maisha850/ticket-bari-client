@@ -24,7 +24,7 @@ setPaymentInfo(res.data)
             <img className='w-20 h-20 rounded-full' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4Nz8k7J1TZMXsTykqt0avNLQbPay4OpqibUHjb4flng&s" alt="" />
           <h3 className='text-4xl font-bold text-green-500'>Payment SuccessFull</h3>
           <p className='text-gray-500'>Thank you! Your payment was successfully processed</p>
-            <p className='text-gray-600'> <span className='font-bold'>Amount:</span> {paymentInfo.amount}</p>
+
             <p className='text-gray-600'> <span className='font-bold'>TransactionId:</span> {paymentInfo.transactionId}</p>
             <Link to={'/dashboard/transaction-history'} className=' btn-primary'>Go to Transaction History</Link>
         </div>

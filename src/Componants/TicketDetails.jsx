@@ -91,12 +91,12 @@ console.log(res.data)
   }
     return (
         <div>
-             <div className="max-w-5xl mx-auto bg-white p-8 shadow-xl rounded-lg overflow-hidden  mt-10 md:flex gap-8">
+             <div className="max-w-6xl mx-auto bg-white p-8 shadow-xl rounded-lg overflow-hidden  mt-10 md:flex gap-8">
       {/* Banner Image */}
       <img 
         src={ticket.image} 
         alt={ticket.title} 
-        className="md:max-w-xl  object-cover"
+        className="md:w-200  object-cover"
       />
 
       {/* Content */}

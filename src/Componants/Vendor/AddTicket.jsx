@@ -45,7 +45,7 @@ const AddTicket = () => {
       }
     };
     fetchUser();
-  }, []);
+  }, [instance,email]);
 
   // const handleTickets = async (data) => {
   //   if (!user) {

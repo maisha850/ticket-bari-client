@@ -126,7 +126,7 @@ const Sidebar = () => {
   return (
     <>
       {/* Mobile Top Navbar */}
-      <div className="md:hidden flex items-center justify-between bg-white  shadow px-4 py-3">
+      <div className="md:hidden flex items-center justify-between   shadow px-4 py-3">
         <Logo />
         <button onClick={() => setIsOpen(true)}>
           <AiOutlineBars className="text-2xl" />
@@ -144,7 +144,7 @@ const Sidebar = () => {
       {/* Sidebar */}
       <aside
         className={`
-          fixed md:static z-50 top-0 left-0 min-h-screen w-64  bg-white shadow-xl
+          fixed md:static z-50 top-0 left-0 min-h-screen w-64   shadow-xl
           transform transition-transform duration-300 ease-in-out
           ${isOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}
         `}

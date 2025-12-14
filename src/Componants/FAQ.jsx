@@ -1,5 +1,5 @@
 import React from "react";
-import img from '../assets/ChatGPT Image Dec 6, 2025, 12_33_22 PM.png'
+
 
 const faqs = [
   {
@@ -58,9 +58,9 @@ const FAQ = () => {
       {/* RIGHT – IMAGE */}
       <div className="flex justify-center">
         <img
-          src={img}
+          src='https://images.unsplash.com/photo-1728055624777-008a827a4817?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDM1fHx8ZW58MHx8fHx8'
           alt="Ticket Bari FAQ Image"
-          className="rounded-2xl shadow-xl w-full h-full object-cover"
+          className="rounded-2xl shadow-xl w-full h-130 object-cover"
         />
       </div>
 

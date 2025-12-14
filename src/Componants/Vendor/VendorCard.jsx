@@ -91,7 +91,7 @@ const navigate = useNavigate()
           <FaClock className="text-green-500" />
           <p>Departure: {departure}</p>
         </div>
-       <button className='btn btn-xs border-red-400 btn-outline'> {verificationStatus}</button>
+       <button className='btn btn-xs border-blue-400 btn-outline'> {verificationStatus}</button>
 
         </div>
         {/* See details button */}

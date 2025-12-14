@@ -6,30 +6,13 @@ import Swal from 'sweetalert2';
 const ManageTicket = () => {
     const instance = useAxiosSecure()
     const {data: tickets=[],refetch}=useQuery({
-        queryKey:['tickets'],
+        queryKey:['manage-tickets'],
         queryFn:async()=>{
-const res = await instance('/tickets')
+const res = await instance('/manage-tickets')
 return res.data
         }
     })
-//     const handleApprove=async(id)=>{
-//  Swal.fire({
-//             title: "Are you sure?",
-//             text: `approve the ticket`,
-//             icon: "success",
-          
-//         }).then(async (result) => {
-//             if (result.isConfirmed) {
-//                 const res = await instance.patch(`/tickets/approve/${id}`,{
-//                     email : ""
-//                 });
-//                 if (res.data.insertedId) {
-//                     refetch();
-//                     Swal.fire("Ticket is approved");
-//                 }
-//             }
-//         });
-//     }
+
 
 const handleApprove = async (id) => {
     console.log(id)
