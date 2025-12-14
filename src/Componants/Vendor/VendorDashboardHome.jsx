@@ -5,6 +5,7 @@ import {
   FaTicketAlt,
   FaMoneyBillWave,
 } from "react-icons/fa";
+import { Link } from "react-router";
 
 const VendorDashboardHome = () => {
   return (
@@ -93,18 +94,13 @@ const VendorDashboardHome = () => {
 
       {/* Quick Actions */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <ActionButton
-          label="➕ Add New Bus"
-          color="bg-blue-600"
-        />
+        <Link to={'/dashboard/add-tickets'} className="bg-blue-600 text-white text-lg rounded-xl px-27 py-6">➕ Add New Ticket</Link>
+       
         <ActionButton
           label="🛣️ Add New Route"
           color="bg-green-600"
         />
-        <ActionButton
-          label="📄 View All Bookings"
-          color="bg-purple-600"
-        />
+          <Link to={'/dashboard/my-added-tickets'} className="bg-yellow-500 text-white text-lg rounded-xl px-27 py-6">🎟️ View added tickets</Link>
       </div>
 
     </div>

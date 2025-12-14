@@ -5,6 +5,7 @@ import {
   FaClock,
   FaMapMarkerAlt,
 } from "react-icons/fa";
+import { Link } from "react-router";
 
 const UserDashboardHome = () => {
   return (
@@ -115,18 +116,11 @@ const UserDashboardHome = () => {
 
       {/* Quick Actions */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <ActionButton
-          label="🎫 Book New Ticket"
-          color="bg-blue-600"
-        />
-        <ActionButton
-          label="📄 My Bookings"
-          color="bg-green-600"
-        />
-        <ActionButton
-          label="⚙️ Profile Settings"
-          color="bg-purple-600"
-        />
+      <Link to={'/all-tickets'} className="bg-yellow-500 text-white text-lg rounded-xl px-27 py-6">🎟️ Book New Tickets</Link>
+      <Link to={'/dashboard/my-booked-tickets'} className="bg-green-500 text-white text-lg rounded-xl px-27 py-6">🎫 My Booked Tickets</Link>
+      <Link to={'/dashboard/profile'} className="bg-purple-500 text-white text-lg rounded-xl px-35 py-6">👤 Profile</Link>
+       
+        
       </div>
 
     </div>

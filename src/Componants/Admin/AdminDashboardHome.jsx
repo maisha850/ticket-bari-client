@@ -119,7 +119,7 @@ const AdminDashboardHome = () => {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         <ActionButton label="👥 Manage Users" color="bg-blue-600" />
         <ActionButton label="🏢 Manage Vendors" color="bg-purple-600" />
-        <ActionButton label="🚌 Manage Buses" color="bg-green-600" />
+        <ActionButton label="🚌 Manage Tickets" color="bg-green-600" />
         <ActionButton label="📊 Reports" color="bg-yellow-500" />
       </div>
 
