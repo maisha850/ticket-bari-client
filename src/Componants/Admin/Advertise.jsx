@@ -17,7 +17,8 @@ return res.data
 //    
     return (
    <div>
-    <h3 className='text-title  '>Advertise Tickets</h3>
+    <h3 className='text-title  '>Featured Tickets</h3>
+    <h3 className='pt-5 pb-10 text-lg text-center text-gray-600'>Choose your route, pick your seat, and travel stress-free with fast booking, trusted operators, and real-time updates</h3>
          <div className='grid md:grid-cols-2 lg:grid-cols-3 p-4 md:p-0 gap-8 '>
         
             

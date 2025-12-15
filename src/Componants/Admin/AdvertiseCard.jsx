@@ -15,7 +15,7 @@ const AdvertiseCard = ({ticket}) => {
 
     return (
         
-             <div className=" w-full shadow-2xl  rounded-lg overflow-hidden mt-10 ">
+             <div className=" w-full shadow-2xl  rounded-lg overflow-hidden  ">
       {/* Banner Image */}
        <img 
         src={ticket.image} 

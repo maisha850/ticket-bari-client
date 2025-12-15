@@ -35,7 +35,7 @@ const Home = () => {
 
       <div data-aos="zoom-in" data-aos-delay="200">
         <h3 className='text-title mb-10'>Popular Routes</h3>
-        <Marquee>
+        <Marquee speed={30}>
           <PopularRoutes />
         </Marquee>
       </div>

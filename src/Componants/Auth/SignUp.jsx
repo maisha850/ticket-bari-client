@@ -53,7 +53,7 @@ toast.error(err?.message)
        <div className='flex justify-center items-center min-h-screen py-15 '>
       <div className='flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900'>
         <div className='mb-8 text-center'>
-          <h1 className='my-3 text-4xl font-bold '>Register</h1>
+          <h1 className='my-3 text-title '>Register</h1>
           <p className='text-sm text-gray-400'>Welcome to TicketBari</p>
         </div>
         <form
@@ -73,7 +73,7 @@ toast.error(err?.message)
                 name='name'
                 id='name'
                 placeholder='Enter Your Name Here'
-                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-yellow-400 bg-gray-200 text-gray-900'
+                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-blue-500 bg-gray-200 text-gray-900'
                 data-temp-mail-org='0'
               />
                {
@@ -90,7 +90,7 @@ toast.error(err?.message)
                 id='email'
                 required
                 placeholder='Enter Your Email Here'
-                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-yellow-400 bg-gray-200 text-gray-900'
+                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-blue-500 bg-gray-200 text-gray-900'
                 data-temp-mail-org='0'
               />
               {
@@ -105,7 +105,7 @@ toast.error(err?.message)
               >
                 Photo-URL
               </label>
-             <input  {...register('image')} type="text"   placeholder='Photo-URL' className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-yellow-400 bg-gray-200 text-gray-900'/>
+             <input  {...register('image')} type="text"   placeholder='Photo-URL' className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-blue-500 bg-gray-200 text-gray-900'/>
             </div>
             <div>
             </div>
@@ -124,7 +124,7 @@ toast.error(err?.message)
                 id='password'
                 required
                 placeholder='*******'
-                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-yellow-400 bg-gray-200 text-gray-900'
+                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-blue-500 bg-gray-200 text-gray-900'
               />
                {errors.password?.type === 'required' && <p className='text-red-500'>Password is required</p> }
           {errors.password?.type === 'minLength'&& <p className='text-red-500'>Password must contain 6 characters</p>}
