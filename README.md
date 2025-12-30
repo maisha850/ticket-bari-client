@@ -1,12 +1,12 @@
-# TicketBari
+# 🎟️TicketBari
 
 
-## Purpose of TicketBari
+## Project Overview
 
-TicketBari is a modern transport ticket booking platform designed to make travel planning simple, fast, and reliable. Its primary purpose is to connect passengers with trusted transport providers, enabling users to search, compare, and book tickets online without the hassle of physical counters or long queues.
+This is a full-featured online ticket booking platform with a dynamic homepage, hero slider, admin-controlled ads, and the latest ticket listings. Only admin-verified tickets are visible, and the platform offers a secure booking flow with quantity validation, countdown timers, and real-time status. It integrates Stripe payments for safe transactions with automatic ticket updates. Dedicated User, Vendor, and Admin Dashboards allow booking management, ticket addition, revenue tracking, approvals, role management, and fraud detection. Role-based access control ensures a safe, organized experience for all users.
 
 
-Live Link: https://ticket-bari-client12.netlify.app/
+### Live Link: https://ticket-bari-client12.netlify.app/
 
 ## Key Features of TicketBari
 
@@ -27,7 +27,7 @@ Live Link: https://ticket-bari-client12.netlify.app/
 - Role-Based Access Control with protected routes for User, Vendor, and Admin
 
 
-## NPM Packages Used
+## Tech Stack
 
 - react router
 
@@ -51,4 +51,27 @@ Live Link: https://ticket-bari-client12.netlify.app/
 
 -  react-fast-marquee
 
-- recharts 
+- recharts
+
+  ## 🧑‍💻 How to Run Locally
+
+### **1️⃣ Clone the repository**
+```bash
+git clone https://github.com/maisha850/ticket-bari-client.git
+npm install
+```
+### **2️⃣ Create environment variables**
+
+*Create a `.env.local` file in the root directory and add your Firebase configuration:*
+```bash
+VITE_apiKey=your_api_key  
+VITE_authDomain=your_auth_domain  
+VITE_projectId=your_project_id  
+VITE_storageBucket=your_storage_bucket  
+VITE_messagingSenderId=your_sender_id  
+VITE_appId=your_app_id
+```
+
+### **3️⃣ Start the development server**
+```bash
+npm run dev
