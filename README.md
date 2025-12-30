@@ -10,21 +10,21 @@ This is a full-featured online ticket booking platform with a dynamic homepage, 
 
 ## Key Features of TicketBari
 
-- Dynamic Homepage with hero slider, admin-controlled advertisements (max 6), and latest ticket listings
+- 🏠 Dynamic Homepage – Hero slider, admin-controlled ads (max 6), and latest ticket listings
 
-- Admin-Verified Ticket System ensuring only approved tickets are visible to users
+- ✅ Admin-Verified Tickets – Only approved tickets are visible to users
 
-- Secure Ticket Booking Flow with quantity validation, countdown timer, and booking status tracking
+- 🔒 Secure Booking Flow – Quantity validation, countdown timer, and booking status tracking
 
-- Stripe Payment Integration with real-time price calculation and automatic ticket quantity updates
+- 💳 Stripe Payment Integration – Real-time price calculation and automatic ticket updates
 
-- User Dashboard for managing bookings, payments, and transaction history
+- 👤 User Dashboard – Manage bookings, payments, and transaction history
 
-- Vendor Dashboard for adding tickets, handling booking requests, and viewing revenue analytics
+- 🛠️ Vendor Dashboard – Add tickets, handle booking requests, and view revenue analytics
 
-- Admin Dashboard for ticket approval, user role management, fraud detection, and ticket advertising
+- 🏢 Admin Dashboard – Ticket approval, user role management, fraud detection, and ticket advertising
 
-- Role-Based Access Control with protected routes for User, Vendor, and Admin
+- 🔐 Role-Based Access Control – Protected routes for Users, Vendors, and Admins
 
 
 ## Tech Stack
@@ -41,11 +41,11 @@ This is a full-featured online ticket booking platform with a dynamic homepage, 
 
 - aos 
 
--  firebase 
+- firebase 
 
--   axios 
+- axios 
 
--  @tanstack/react-query 
+- @tanstack/react-query 
 
 - @stripe/stripe-js 
 
@@ -58,6 +58,7 @@ This is a full-featured online ticket booking platform with a dynamic homepage, 
 ### **1️⃣ Clone the repository**
 ```bash
 git clone https://github.com/maisha850/ticket-bari-client.git
+cd ticket-bari-client
 npm install
 ```
 ### **2️⃣ Create environment variables**
