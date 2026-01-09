@@ -78,7 +78,7 @@ import img from '../assets/ChatGPT Image Dec 13, 2025, 10_24_42 PM.png'
 
 const Banner = () => {
   return (
-    <div className="w-full h-[90vh]">
+    <div className="w-full h-[70vh]">
       <Swiper
         modules={[Autoplay,  Pagination]}
         autoplay={{ delay: 4000 }}
