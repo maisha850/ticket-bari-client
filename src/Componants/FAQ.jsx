@@ -40,13 +40,13 @@ const FAQ = () => {
 
         <div className="space-y-4">
           {faqs.map((item, i) => (
-            <div key={i} className="collapse collapse-plus bg-base-200 rounded-xl">
+            <div key={i} className="collapse collapse-plus bg-base-200 dark:bg-gray-800 rounded-xl">
               <input type="radio" name="faq-accordion" />
-              <div className="collapse-title text-lg font-semibold">
+              <div className="collapse-title text-gray-800 dark:text-gray-300 text-lg font-semibold">
                 {item.q}
               </div>
               <div className="collapse-content">
-                <p className="text-base leading-relaxed text-gray-600">
+                <p className="text-base leading-relaxed text-gray-600 dark:text-gray-400">
                   {item.a}
                 </p>
               </div>

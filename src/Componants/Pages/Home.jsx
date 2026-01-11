@@ -12,6 +12,7 @@ import Destination from '../Home/Destination';
 import WhyChooseUs from '../Home/WhyChooseUs';
 
 import HowToBuyTickets from '../Home/HowToBuyTickets';
+import SearchForm from '../Home/SearchForm';
 
 const Home = () => {
   useEffect(() => {
@@ -25,10 +26,13 @@ const Home = () => {
   return (
     <div>
       <div data-aos="fade-up">
-        <Banner />
+      <div className="relative">
+      <Banner></Banner>
+     
+    </div>
       </div>
 
-      <div className=' py-15 bg-gradient-to-b from-green-50 via-white to-white
+      <div className=' bg-white dark:bg-gray-900 transition-colors py-15
       dark:from-gray-900 dark:via-gray-900 dark:to-gray-950'>
            <div data-aos="fade-up" data-aos-delay="400" className='max-w-7xl mx-auto'>
           <LatestTickets />
@@ -50,9 +54,11 @@ const Home = () => {
 <WhyChooseUs></WhyChooseUs>
 <HowToBuyTickets></HowToBuyTickets>
 
-      <div data-aos="fade-left" data-aos-delay="300" className=' max-w-7xl mx-auto py-15'>
+     <div className='  dark:bg-gray-900 transition-colors'>
+       <div data-aos="fade-left" data-aos-delay="300" className=' max-w-7xl mx-auto py-15'>
         <FAQ />
       </div>
+     </div>
     </div>
   );
 };

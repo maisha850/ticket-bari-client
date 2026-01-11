@@ -29,7 +29,9 @@ import ErrorPage from './Componants/ErrorPage.jsx'
 import Revenue from './Componants/Vendor/Revenue.jsx'
 import VendorRoute from './Componants/Routes/VendorRoute.jsx'
 import AdminRoute from './Componants/Routes/AdminRoute.jsx'
-import SearchResult from './Componants/Pages/SearchResult.jsx'
+import About from './Componants/About.jsx'
+import SearchResults from './Componants/Home/SearchResults.jsx'
+
 
 const queryClient = new QueryClient()
 const router = createBrowserRouter([
@@ -59,9 +61,14 @@ const router = createBrowserRouter([
       Component: TicketDetails
     },
     {
-      path:'/search',
-      element: <SearchResult></SearchResult>
+      path: '/about',
+      Component: About
+    },
+    {
+      path: '/search',
+      Component: SearchResults
     }
+
   ]
 
 },

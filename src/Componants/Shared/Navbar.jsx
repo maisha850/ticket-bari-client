@@ -10,6 +10,7 @@ const Navbar = () => {
     <NavLink to="/" className="mr-8 ">Home</NavLink>
     <NavLink to="/all-tickets" className="mr-8 ">All Tickets</NavLink>
     <NavLink to="/dashboard" className="mr-8 ">Dashboard</NavLink>
+    <NavLink to="/about" className="mr-8 ">About</NavLink>
    {
     !user && <>
      <NavLink to="/register" className="mr-8 ">Register</NavLink>

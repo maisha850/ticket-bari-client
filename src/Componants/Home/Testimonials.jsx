@@ -77,16 +77,16 @@ export default function Testimonials() {
     (active + offset + testimonials.length) % testimonials.length;
 
   return (
-    <section className="py-24 px-6 bg-gray-100 dark:bg-stone-950 transition-colors">
+    <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 bg-gray-100 dark:bg-stone-900 transition-colors">
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="text-center max-w-2xl mx-auto mb-16"
+        className="text-center max-w-2xl mx-auto mb-12 sm:mb-16"
       >
-        <h2 className="text-title dark:text-white mb-4">
+        <h2 className="text-title mb-4">
           What Our Travelers Say
         </h2>
         <p className="text-gray-600 dark:text-gray-400">
@@ -100,7 +100,7 @@ export default function Testimonials() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.7, ease: "easeOut" }}
-        className="flex items-center justify-center gap-6 max-w-6xl mx-auto"
+        className="flex items-center justify-center gap-4 sm:gap-6 max-w-6xl mx-auto"
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
       >
@@ -118,20 +118,29 @@ export default function Testimonials() {
               }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className={`bg-white dark:bg-gray-800 rounded-2xl p-8 text-center shadow-xl ${
-                isCenter ? "z-10" : "opacity-70"
-              }`}
+              className={`
+                bg-white dark:bg-gray-800 rounded-2xl shadow-xl text-center
+                p-5 sm:p-6 lg:p-8
+                ${isCenter ? "z-10" : "opacity-70"}
+                ${
+                  offset === 0
+                    ? "block"
+                    : "hidden sm:block"
+                }
+              `}
             >
               <img
                 src={item.image}
                 alt={item.name}
                 className={`rounded-full mx-auto mb-4 object-cover ${
-                  isCenter ? "w-20 h-20" : "w-16 h-16"
+                  isCenter
+                    ? "w-20 h-20 sm:w-24 sm:h-24"
+                    : "w-16 h-16"
                 }`}
               />
 
               <p
-                className={`text-sm leading-relaxed mb-2 ${
+                className={`text-sm leading-relaxed mb-3 ${
                   isCenter
                     ? "text-gray-700 dark:text-gray-300"
                     : "text-gray-500 dark:text-gray-400"

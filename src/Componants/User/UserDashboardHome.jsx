@@ -1,170 +1,199 @@
-import React from "react";
+import { useQuery } from "@tanstack/react-query";
 import {
-  FaTicketAlt,
-  FaBus,
-  FaClock,
-  FaMapMarkerAlt,
-} from "react-icons/fa";
-import { Link } from "react-router";
+  BarChart, Bar, PieChart, Pie,
+  XAxis, YAxis, Tooltip, CartesianGrid,
+  ResponsiveContainer, Cell, Legend
+} from "recharts";
+import {
+  Ticket, CheckCircle, Clock,
+  XCircle, DollarSign
+} from "lucide-react";
+import useAxios from "../../Hooks/useAxios";
+import useAuth from "../../Hooks/useAuth";
 
-const UserDashboardHome = () => {
+export default function UserDashboardHome() {
+  const axiosSecure = useAxios();
+  const { user } = useAuth();
+
+  /* ================= FETCH DATA ================= */
+
+  const { data: bookings = [] } = useQuery({
+    queryKey: ["myBookings", user?.email],
+    enabled: !!user?.email,
+    queryFn: async () =>
+      (await axiosSecure.get(`/myBookedTickets/${user.email}`)).data
+  });
+
+  const { data: payments = [] } = useQuery({
+    queryKey: ["paymentsHistory", user?.email],
+    enabled: !!user?.email,
+    queryFn: async () =>
+      (await axiosSecure.get(`/paymentsHistory?email=${user.email}`)).data
+  });
+
+  /* ================= DERIVED STATS ================= */
+
+  const confirmed = bookings.filter(b => b.status === "accepted").length;
+  const pending = bookings.filter(b => b.status === "pending").length;
+  const rejected = bookings.filter(b => b.status === "rejected").length;
+
+  const totalTickets = payments.reduce(
+    (sum, p) => sum + Number(p.quantity || 0), 0
+  );
+
+  const totalSpent = payments.reduce(
+    (sum, p) => sum + Number(p.amount || 0), 0
+  );
+
+  /* ================= CHART DATA ================= */
+
+  const barData = [
+    { name: "Bookings", value: bookings.length },
+    { name: "Completed", value: confirmed }
+  ];
+
+  const pieData = [
+    { name: "Accepted", value: confirmed },
+    { name: "Pending", value: pending },
+    { name: "Rejected", value: rejected }
+  ];
+
+  const COLORS = ["#22c55e", "#facc15", "#ef4444"];
+
+  /* ================= UI ================= */
+
   return (
-    <div className="min-h-screen rounded-xl shadow-2xl p-6">
+    <div className="min-h-screen p-6
+      bg-gray-100 dark:bg-gray-900
+      text-gray-800 dark:text-gray-200
+      space-y-6">
 
-      {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold ">
-          My Dashboard
-        </h1>
-        <p className="text-gray-500 mt-1">
-          Welcome back! Manage your trips and bookings
-        </p>
+      {/* ===== STATS ===== */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        <Stat icon={<Ticket />} title="Bookings" value={bookings.length} />
+        <Stat icon={<CheckCircle />} title="Confirmed" value={confirmed} />
+        <Stat icon={<Clock />} title="Pending" value={pending} />
+        <Stat icon={<DollarSign />} title="Spent (৳)" value={totalSpent} />
+        <Stat icon={<Ticket />} title="Tickets" value={totalTickets} />
       </div>
 
-      {/* Stats Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+      {/* ===== CHARTS ===== */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <Card title="Booking Progress">
+          <ResponsiveContainer width="100%" height={260}>
+            <BarChart data={barData}>
+              <CartesianGrid strokeDasharray="3 3" stroke="#444" />
+              <XAxis dataKey="name" stroke="#aaa" />
+              <YAxis stroke="#aaa" />
+              <Tooltip />
+              <Bar dataKey="value" fill="#3b82f6" />
+            </BarChart>
+          </ResponsiveContainer>
+        </Card>
 
-        <StatCard
-          icon={<FaTicketAlt />}
-          title="Total Bookings"
-          value="12"
-          color="text-blue-600"
-        />
-
-        <StatCard
-          icon={<FaBus />}
-          title="Upcoming Trips"
-          value="3"
-          color="text-green-600"
-        />
-
-        <StatCard
-          icon={<FaClock />}
-          title="Pending Payments"
-          value="1"
-          color="text-yellow-500"
-        />
-
-        <StatCard
-          icon={<FaMapMarkerAlt />}
-          title="Visited Routes"
-          value="8"
-          color="text-purple-600"
-        />
+        <Card title="Booking Status">
+          <ResponsiveContainer width="100%" height={260}>
+            <PieChart>
+              <Pie
+                data={pieData}
+                dataKey="value"
+                outerRadius={90}
+                label
+              >
+                {pieData.map((_, i) => (
+                  <Cell key={i} fill={COLORS[i]} />
+                ))}
+              </Pie>
+              <Legend />
+            </PieChart>
+          </ResponsiveContainer>
+        </Card>
       </div>
 
-      {/* Upcoming Trips */}
-      <div className=" rounded-xl shadow p-6 mb-10">
-        <h2 className="text-xl font-semibold mb-4">
-          Upcoming Trips
-        </h2>
+    
+    
+      {/* ===== RECENT BOOKINGS ===== */}
+<Card title="Recent Bookings">
+  <div className="overflow-x-auto">
+    <table className="w-full text-sm text-left border-collapse">
+      <thead className="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200">
+        <tr>
+          <th className="px-4 py-3 font-medium">Route</th>
+          <th className="px-4 py-3 font-medium">Date</th>
+          <th className="px-4 py-3 font-medium">Status</th>
+          <th className="px-4 py-3 font-medium text-center">Quantity</th>
+        </tr>
+      </thead>
 
-        <div className="space-y-4">
-          <TripCard
-            route="Dhaka → Chittagong"
-            date="15 Dec 2025"
-            time="10:00 PM"
-            status="Confirmed"
-          />
-          <TripCard
-            route="Dhaka → Sylhet"
-            date="20 Dec 2025"
-            time="08:30 AM"
-            status="Pending"
-          />
-        </div>
-      </div>
+      <tbody>
+        {bookings.slice(0, 5).map((b) => (
+          <tr
+            key={b._id}
+            className="border-b dark:border-gray-700
+            hover:bg-gray-50 dark:hover:bg-gray-800 transition"
+          >
+            <td className="px-4 py-3 whitespace-nowrap">
+              {b.from} → {b.to}
+            </td>
 
-      {/* Recent Bookings */}
-      <div className=" rounded-xl shadow p-6 mb-10">
-        <h2 className="text-xl font-semibold mb-4">
-          Recent Bookings
-        </h2>
+            <td className="px-4 py-3 whitespace-nowrap">
+              {new Date(b.departure).toLocaleDateString()}
+            </td>
 
-        <div className="overflow-x-auto">
-          <table className="table w-full">
-            <thead>
-              <tr className="">
-                <th>#</th>
-                <th>Route</th>
-                <th>Date</th>
-                <th>Status</th>
-              </tr>
-            </thead>
+            <td className="px-4 py-3">
+              <span
+                className={`inline-flex items-center px-2.5 py-1 rounded-full
+                text-xs font-semibold
+                ${
+                  b.status === "accepted"
+                    ? "bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300"
+                    : b.status === "pending"
+                    ? "bg-yellow-100 text-yellow-700 dark:bg-yellow-900 dark:text-yellow-300"
+                    : "bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300"
+                }`}
+              >
+                {b.status}
+              </span>
+            </td>
 
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>Dhaka → Rajshahi</td>
-                <td>10 Dec 2025</td>
-                <td className="text-green-600 font-medium">
-                  Completed
-                </td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Dhaka → Cox’s Bazar</td>
-                <td>05 Dec 2025</td>
-                <td className="text-blue-600 font-medium">
-                  Completed
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      {/* Quick Actions */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <Link to={'/all-tickets'} className="bg-yellow-500 text-white text-lg rounded-xl px-27 py-6">🎟️ Book New Tickets</Link>
-      <Link to={'/dashboard/my-booked-tickets'} className="bg-green-500 text-white text-lg rounded-xl px-27 py-6">🎫 My Booked Tickets</Link>
-      <Link to={'/dashboard/profile'} className="bg-purple-500 text-white text-lg rounded-xl px-35 py-6">👤 Profile</Link>
-       
-        
-      </div>
+            <td className="px-4 py-3 text-center font-medium">
+              {b.quantity}
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</Card>
 
     </div>
   );
-};
+}
 
-/* Reusable Components */
+/* ================= COMPONENTS ================= */
 
-const StatCard = ({ icon, title, value, color }) => (
-  <div className=" rounded-xl shadow p-5 flex items-center gap-4">
-    <div className={`text-4xl ${color}`}>{icon}</div>
-    <div>
-      <p className="text-gray-500">{title}</p>
-      <h3 className="text-2xl font-bold">{value}</h3>
+function Stat({ icon, title, value }) {
+  return (
+    <div className="flex items-center gap-4
+      bg-white dark:bg-gray-800
+      p-4 rounded-lg shadow">
+      <div className="p-2 rounded bg-blue-100 dark:bg-blue-900
+        text-blue-600 dark:text-blue-300">
+        {icon}
+      </div>
+      <div>
+        <p className="text-sm text-gray-500 dark:text-gray-400">{title}</p>
+        <p className="text-2xl font-bold">{value}</p>
+      </div>
     </div>
-  </div>
-);
+  );
+}
 
-const TripCard = ({ route, date, time, status }) => (
-  <div className="flex items-center justify-between p-4 border rounded-lg">
-    <div>
-      <h4 className="font-semibold">{route}</h4>
-      <p className="text-sm text-gray-500">
-        {date} • {time}
-      </p>
+function Card({ title, children }) {
+  return (
+    <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+      <h3 className="font-semibold mb-3">{title}</h3>
+      {children}
     </div>
-    <span
-      className={`px-3 py-1 rounded-full text-sm ${
-        status === "Confirmed"
-          ? "bg-green-100 text-green-700"
-          : "bg-yellow-100 text-yellow-700"
-      }`}
-    >
-      {status}
-    </span>
-  </div>
-);
-
-const ActionButton = ({ label, color }) => (
-  <button
-    className={`${color} text-white p-4 rounded-xl shadow hover:opacity-90 transition`}
-  >
-    {label}
-  </button>
-);
-
-export default UserDashboardHome;
+  );
+}

@@ -14,8 +14,8 @@ return res.data
         }
     })
     return (
-      <div>
-        <h3 className='text-title  mt-15'>Latest Tickets</h3>
+      <div className=''>
+        <h3 className='text-title  mt-30'>Latest Tickets</h3>
         <h3 className='pt-5 pb-10 text-lg text-center text-gray-600'>Be the first to book our latest tickets and enjoy smooth journeys with reliable bus services.</h3>
           <div className='grid md:grid-cols-2 lg:grid-cols-4 p-4 md:p-0 gap-8'>
             {
