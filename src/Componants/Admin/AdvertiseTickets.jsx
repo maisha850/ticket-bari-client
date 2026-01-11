@@ -32,7 +32,7 @@ return res.data
       Swal.fire({
         icon: "error",
         title: "Limit Reached",
-        text: "Admin cannot advertise more than 6 tickets."
+        text: "Admin cannot advertise more than 8 tickets."
       });
       return;
     }
@@ -84,16 +84,16 @@ return res.data
                                <td className='flex gap-2 '>
 
       <button
-                    disabled={!ticket.advertise && advertisedCount >= 6}
+                    disabled={!ticket.advertise && advertisedCount >= 8}
                     onClick={() => handleAdverTise(ticket)}
                     className={`btn btn-xs 
                       ${ticket.advertise ? "btn-success" : "btn-info"}
-                      ${(!ticket.advertise && advertisedCount >= 6) && "btn-disabled"}
+                      ${(!ticket.advertise && advertisedCount >= 8) && "btn-disabled"}
                     `}
                   >
                     {ticket.advertise
                       ? "Unadvertise"
-                      : advertisedCount >= 6
+                      : advertisedCount >= 8
                       ? "Limit Reached"
                       : "Advertise"}
                   </button>

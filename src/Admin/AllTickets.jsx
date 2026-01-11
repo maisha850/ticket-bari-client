@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import useAxios from '../Hooks/useAxios';
 import TicketCard from '../Componants/TicketCard';
+import Loading from '../Componants/Shared/Loading';
 
 const AllTickets = () => {
     const instance = useAxios();
@@ -16,7 +17,7 @@ const AllTickets = () => {
 
     // Pagination States
     const [currentPage, setCurrentPage] = useState(1);
-    const itemsPerPage = 6; 
+    const itemsPerPage = 8; 
 
     // Fetch Tickets
     const { data: tickets = [] } = useQuery({
@@ -110,15 +111,13 @@ const AllTickets = () => {
             </div>
 
             {/* Tickets */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {paginatedTickets.length > 0 ? (
                     paginatedTickets.map(ticket => (
                         <TicketCard key={ticket._id} ticket={ticket} />
                     ))
                 ) : (
-                    <p className="text-center text-gray-500 col-span-3">
-                        No tickets found.
-                    </p>
+                   <Loading></Loading>
                 )}
             </div>
 

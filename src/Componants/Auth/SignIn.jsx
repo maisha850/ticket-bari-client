@@ -25,6 +25,14 @@ console.log(err)
 toast.error(err?.message)
 }
   }
+  const handleDemoLogin = (email, password) => {
+    signIn(email, password)
+      .then(() => {
+        toast.success('Demo logIn successful');
+        navigate(location.state || '/');
+      })
+      .catch((err) => toast.error(err.message));
+  };
     const handleGoogleSignIn = async () => {
       try {
         //User Registration using google
@@ -109,6 +117,22 @@ toast.error(err?.message)
             </button>
           </div>
         </form>
+         {/* ================= DEMO BUTTONS ================= */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
+            <button
+              onClick={() => handleDemoLogin('demouser@gmail.com', 'DemoUser1234')}
+              className="btn bg-blue-100 text-blue-700 hover:bg-blue-200"
+            >
+              Demo User
+            </button>
+
+            <button
+              onClick={() => handleDemoLogin('admin@gmail.com', 'abcABC123')}
+              className="btn bg-green-100 text-green-700 hover:bg-green-200"
+            >
+              Demo Admin
+            </button>
+          </div>
         <div className='space-y-1'>
           <button className='text-xs hover:underline hover:text-primary text-gray-400 cursor-pointer'>
             Forgot password?

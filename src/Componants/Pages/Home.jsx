@@ -10,7 +10,8 @@ import "aos/dist/aos.css";
 import Testimonials from '../Home/Testimonials';
 import Destination from '../Home/Destination';
 import WhyChooseUs from '../Home/WhyChooseUs';
-import OffersSection from '../Home/OfferSection';
+
+import HowToBuyTickets from '../Home/HowToBuyTickets';
 
 const Home = () => {
   useEffect(() => {
@@ -27,14 +28,16 @@ const Home = () => {
         <Banner />
       </div>
 
-      <div className='max-w-7xl mx-auto py-15'>
+      <div className=' py-15 bg-gradient-to-b from-green-50 via-white to-white
+      dark:from-gray-900 dark:via-gray-900 dark:to-gray-950'>
+           <div data-aos="fade-up" data-aos-delay="400" className='max-w-7xl mx-auto'>
+          <LatestTickets />
+        </div>
         <div data-aos="fade-down" data-aos-delay="200">
           <Advertise />
         </div>
 
-        <div data-aos="fade-up" data-aos-delay="400">
-          <LatestTickets />
-        </div>
+     
       </div>
       <Destination></Destination>
 <Testimonials></Testimonials>
@@ -45,7 +48,8 @@ const Home = () => {
         </Marquee>
       </div> */}
 <WhyChooseUs></WhyChooseUs>
-<OffersSection></OffersSection>
+<HowToBuyTickets></HowToBuyTickets>
+
       <div data-aos="fade-left" data-aos-delay="300" className=' max-w-7xl mx-auto py-15'>
         <FAQ />
       </div>

@@ -1,150 +1,166 @@
-import React from "react";
+import { useQuery } from "@tanstack/react-query";
 import {
-  FaUsers,
-  FaUserTie,
-  FaBus,
-  FaMoneyBillWave,
-  FaTicketAlt,
-  FaExclamationTriangle,
-} from "react-icons/fa";
+  BarChart, Bar, PieChart, Pie,
+  XAxis, YAxis, Tooltip, CartesianGrid,
+  ResponsiveContainer, Cell, Legend
+} from "recharts";
+import useAxios from "../../Hooks/useAxios";
 
-const AdminDashboardHome = () => {
+export default function AdminDashboardHome() {
+  const axiosSecure = useAxios();
+
+  /* =================== QUERIES =================== */
+
+  const { data: users = [] } = useQuery({
+    queryKey: ["users"],
+    queryFn: async () => (await axiosSecure.get("/totalUsers")).data
+  });
+
+  const { data: tickets = [] } = useQuery({
+    queryKey: ["tickets"],
+    queryFn: async () => (await axiosSecure.get("/tickets")).data
+  });
+
+  const { data: approvedTickets = [] } = useQuery({
+    queryKey: ["approvedTickets"],
+    queryFn: async () => (await axiosSecure.get("/allTickets")).data
+  });
+
+  const { data: advertised } = useQuery({
+    queryKey: ["advertisedCount"],
+    queryFn: async () => (await axiosSecure.get("/advertisedCount")).data
+  });
+
+  const { data: revenue } = useQuery({
+    queryKey: ["revenue"],
+    queryFn: async () => (await axiosSecure.get("/stats/revenue")).data
+  });
+
+  const { data: sold } = useQuery({
+    queryKey: ["ticketsSold"],
+    queryFn: async () => (await axiosSecure.get("/stats/tickets-sold")).data
+  });
+
+  const { data: added } = useQuery({
+    queryKey: ["ticketsAdded"],
+    queryFn: async () => (await axiosSecure.get("/stats/tickets-added")).data
+  });
+
+  /* =================== DERIVED DATA =================== */
+
+  const pendingTickets = tickets.filter(
+    t => t.verificationStatus === "pending"
+  ).length;
+
+  const chartBarData = [
+    { name: "Tickets Added", value: added?.totalTicketsAdded || 0 },
+    { name: "Tickets Sold", value: sold?.totalTicketsSold || 0 }
+  ];
+
+  const pieData = [
+    { name: "Approved", value: approvedTickets.length },
+    { name: "Pending", value: pendingTickets }
+  ];
+
+  const COLORS = ["#2563eb", "#f97316"];
+
+  /* =================== UI =================== */
+
   return (
-    <div className="min-h-screen  p-6">
-
-      {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold ">
-          Admin Dashboard
-        </h1>
-        <p className=" mt-1">
-          System overview & management
-        </p>
+    <div className="space-y-6">
+      {/* ===== STAT CARDS ===== */}
+      <div className="grid grid-cols-1 md:grid-cols-6 gap-4">
+        <Stat title="Users" value={users.length} />
+        <Stat title="Tickets" value={tickets.length} />
+        <Stat title="Approved" value={approvedTickets.length} />
+        <Stat title="Advertised" value={advertised?.count || 0} />
+        <Stat title="Revenue (৳)" value={revenue?.totalRevenue || 0} />
+        <Stat title="Sold" value={sold?.totalTicketsSold || 0} />
       </div>
 
-      {/* Stat Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
-        <StatCard
-          icon={<FaUsers />}
-          title="Total Users"
-          value="3,245"
-          color="text-blue-600"
-        />
-        <StatCard
-          icon={<FaUserTie />}
-          title="Vendors"
-          value="48"
-          color="text-purple-600"
-        />
-        <StatCard
-          icon={<FaTicketAlt />}
-          title="Tickets Sold"
-          value="12,850"
-          color="text-green-600"
-        />
-        <StatCard
-          icon={<FaMoneyBillWave />}
-          title="Revenue"
-          value="৳ 12,40,000"
-          color="text-yellow-500"
-        />
-      </div>
-
-      {/* Middle Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-10">
-
-        {/* System Alerts */}
-        <div className=" rounded-xl shadow p-6">
-          <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
-            <FaExclamationTriangle className="text-red-500" />
-            System Alerts
-          </h2>
-
-          <ul className="space-y-3 text-sm">
-            <li className="p-3 bg-red-50 text-black rounded">
-              ⚠️ Vendor approval pending (5)
-            </li>
-            <li className="p-3 bg-yellow-50 text-black rounded">
-              ⚠️ Payment verification needed
-            </li>
-            <li className="p-3 bg-blue-50 text-black rounded">
-              ℹ️ New route requests
-            </li>
-          </ul>
+      {/* ===== CHARTS ===== */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* BAR */}
+        <div className="bg-white p-4 rounded shadow">
+          <h3 className="font-semibold mb-2">Ticket Performance</h3>
+          <ResponsiveContainer width="100%" height={260}>
+            <BarChart data={chartBarData}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+              <Bar dataKey="value" fill="#2563eb" />
+            </BarChart>
+          </ResponsiveContainer>
         </div>
 
-        {/* Recent Activities */}
-        <div className=" rounded-xl shadow p-6 lg:col-span-2">
-          <h2 className="text-lg font-semibold mb-4">
-            Recent Activities
-          </h2>
-
-          <div className="overflow-x-auto">
-            <table className="table w-full">
-              <thead>
-                <tr className="">
-                  <th>#</th>
-                  <th>Action</th>
-                  <th>User</th>
-                  <th>Date</th>
-                </tr>
-              </thead>
-
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Vendor Approved</td>
-                  <td>Green Line</td>
-                  <td>Today</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Bus Added</td>
-                  <td>Hanif Enterprise</td>
-                  <td>Yesterday</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>User Registered</td>
-                  <td>Rahim</td>
-                  <td>Yesterday</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+        {/* PIE */}
+        <div className="bg-white p-4 rounded shadow">
+          <h3 className="font-semibold mb-2">Ticket Status</h3>
+          <ResponsiveContainer width="100%" height={260}>
+            <PieChart>
+              <Pie
+                data={pieData}
+                dataKey="value"
+                nameKey="name"
+                outerRadius={90}
+                label
+              >
+                {pieData.map((_, i) => (
+                  <Cell key={i} fill={COLORS[i % COLORS.length]} />
+                ))}
+              </Pie>
+              <Legend />
+            </PieChart>
+          </ResponsiveContainer>
         </div>
       </div>
 
-      {/* Quick Admin Actions */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <ActionButton label="👥 Manage Users" color="bg-blue-600" />
-        <ActionButton label="🏢 Manage Vendors" color="bg-purple-600" />
-        <ActionButton label="🚌 Manage Tickets" color="bg-green-600" />
-        <ActionButton label="📊 Reports" color="bg-yellow-500" />
+      {/* ===== LATEST TICKETS ===== */}
+      <div className="bg-white p-4 rounded shadow">
+        <h3 className="font-semibold mb-3">Latest Tickets</h3>
+        <table className="w-full text-sm">
+          <thead className="bg-gray-100">
+            <tr className="-ml-8">
+              <th className="p-2 ">Title</th>
+              <th>From</th>
+              <th>To</th>
+              <th>Status</th>
+              <th>Advertise</th>
+            </tr>
+          </thead>
+          <tbody>
+            {tickets.slice(0, 5).map(ticket => (
+              <tr key={ticket._id} className="border-b">
+                <td className="p-2">{ticket.title}</td>
+                <td>{ticket.from}</td>
+                <td>{ticket.to}</td>
+                <td>
+                  <span className={`px-2 py-1 rounded text-xs ${
+                    ticket.verificationStatus === "approved"
+                      ? "bg-green-100 text-green-600"
+                      : "bg-yellow-100 text-yellow-600"
+                  }`}>
+                    {ticket.verificationStatus}
+                  </span>
+                </td>
+                <td>{ticket.advertise ? "Yes" : "No"}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
-
     </div>
   );
-};
+}
 
-/* Reusable Components */
+/* ===== STAT CARD COMPONENT ===== */
 
-const StatCard = ({ icon, title, value, color }) => (
-  <div className=" rounded-xl shadow p-5 flex items-center gap-4">
-    <div className={`text-4xl ${color}`}>{icon}</div>
-    <div>
-      <p className="text-gray-500">{title}</p>
-      <h3 className="text-2xl font-bold">{value}</h3>
+function Stat({ title, value }) {
+  return (
+    <div className="bg-white p-4 rounded shadow">
+      <p className="text-sm text-gray-500">{title}</p>
+      <p className="text-2xl font-bold">{value}</p>
     </div>
-  </div>
-);
-
-const ActionButton = ({ label, color }) => (
-  <button
-    className={`${color} text-white p-4 rounded-xl shadow hover:opacity-90 transition`}
-  >
-    {label}
-  </button>
-);
-
-export default AdminDashboardHome;
+  );
+}

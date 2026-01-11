@@ -77,7 +77,7 @@ export default function Testimonials() {
     (active + offset + testimonials.length) % testimonials.length;
 
   return (
-    <section className="py-24 px-6 bg-gray-100 dark:bg-gray-900 transition-colors">
+    <section className="py-24 px-6 bg-gray-100 dark:bg-stone-950 transition-colors">
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}

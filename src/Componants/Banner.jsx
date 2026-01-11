@@ -1,167 +1,123 @@
-// import React from 'react';
-// import { motion } from "motion/react";
+import { useState } from "react";
+import { FaBus, FaPlane, FaTrain, FaSearch } from "react-icons/fa";
+import { useNavigate } from "react-router";
+import { motion } from "framer-motion";
 
-// import banner from '../assets/ChatGPT Image Dec 13, 2025, 10_24_42 PM.png'
-// import { Link } from 'react-router';
+export default function Banner() {
+  const [activeTab, setActiveTab] = useState("bus");
+  const [form, setForm] = useState({
+    from: "",
+    to: "",
+  });
 
-// const Banner = () => {
-//    return (
-// <section className=" flex justify-center items-center text-white  " >
-//     <motion.div initial={{ opacity: 0, y: -30 }}
-// animate={{ opacity: 1, y: 0 }}
-// transition={{ duration: 0.8 }} className='w-full block mx-auto bg-center bg-cover bg-no-repeat h-200' style={{
-//     backgroundImage:
-//       `url(${banner})`,
-//   }}>
-// <div className=" pt-40 space-y-6 ml-20 ">
-// {/* Animated Title */}
-// <motion.h1
-// initial={{ opacity: 0, y: -30 }}
-// animate={{ opacity: 1, y: 0 }}
-// transition={{ duration: 0.8 }}
-// className="text-5xl md:text-6xl  font-bold leading-tight"
-// >
-// Welcome to <span className="text-title">TicketBari</span>
-// </motion.h1>
+  const navigate = useNavigate();
 
+  const handleSearch = () => {
+    if (!form.from || !form.to) return;
 
-// {/* Subtitle */}
-// <motion.p
-// initial={{ opacity: 0 }}
-// animate={{ opacity: 1 }}
-// transition={{ delay: 0.4, duration: 0.8 }}
-// className="text-lg md:text-xl text-blue-100 max-w-lg "
-// >
-// Your smart and simple online ticket booking partner. Book buses, trains, and planes in seconds!
-// </motion.p>
+    navigate(
+      `/search?transportType=${activeTab}&from=${form.from}&to=${form.to}`
+    );
+  };
 
+  const heroImages = {
+    bus: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200",
+    plane: "https://images.unsplash.com/photo-1529074963764-98f45c47344b?w=1200",
+    train: "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?w=1200",
+  };
 
-// {/* Buttons with animation */}
-// <motion.div
-// initial={{ opacity: 0, y: 20 }}
-// animate={{ opacity: 1, y: 0 }}
-// transition={{ delay: 0.7, duration: 0.8 }}
-// className="flex  gap-4 mt-6"
-// >
-// <Link to={'/all-tickets'} className="px-6 pt-3 bg-gradient-to-br from-green-400 to-blue-800  text-black font-semibold rounded-lg shadow-md transition duration-200 ">
-// Book Now
-// </Link>
-// <button className="px-6 py-3 text-lg rounded-2xl font-semibold shadow-lg bg-white text-blue-600 hover:bg-blue-100">
-// Learn More
-// </button>
-// </motion.div>
-
-
-// {/* Floating Animation Illustration */}
-// {/* <motion.img
-// src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
-// alt="Ticket Illustration"
-// className="w-40 md:w-52 mx-auto mt-10 drop-shadow-xl"
-// animate={{ y: [0, -12, 0] }}
-// transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-// /> */}
-// </div>
-//     </motion.div>
-
-// </section>
-// );
-// };
-
-// export default Banner;
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
-
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import img from '../assets/ChatGPT Image Dec 13, 2025, 10_24_42 PM.png'
-
-const Banner = () => {
   return (
-    <div className="w-full h-[70vh]">
-      <Swiper
-        modules={[Autoplay,  Pagination]}
-        autoplay={{ delay: 4000 }}
-        loop={true}
+    <section className="relative w-full bg-gray-100 dark:bg-gray-900 overflow-hidden">
+
+      {/* Background Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-r from-green-200/40 to-blue-300/40 blur-3xl opacity-30"></div>
+
+      {/* Hero Content */}
+      <div className="relative max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
         
-        pagination={{ clickable: true }}
-        className="h-full"
-      >
+        {/* Text */}
+        <div className="max-w-xl space-y-6">
+          <h1 className="text-5xl font-black text-gray-900 dark:text-white leading-tight">
+            Travel Smarter With <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-br from-green-400 to-blue-800">
+              Ticket Bari
+            </span>
+          </h1>
 
-           <SwiperSlide>
-          <div
-            className="h-full w-full bg-cover bg-center flex items-center"
-            style={{
-              backgroundImage:
-                "linear-gradient(to bottom right, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.75)), url('https://images.unsplash.com/photo-1547380243-c25d8e5dbe5b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjJ8fHRyYWlufGVufDB8fDB8fHww')",
-            }}
-          >
-            <div className="max-w-7xl  px-6 ">
-              <h1 className="text-4xl md:text-7xl font-bold mb-4 text-white">
-                Comfortable & Reliable
-              </h1>
-              <p className="text-lg md:text-xl mb-6 text-white">
-                Premium coaches with trusted vendors
-              </p>
-              <button className="px-8 py-4 text-xl bg-gradient-to-br from-green-400 to-blue-800  text-black font-semibold rounded-lg shadow-md transition duration-200">
-                Explore Routes
+          <p className="text-gray-700 dark:text-gray-300 text-lg">
+            Book your Bus, Plane, and Train tickets in seconds with real-time availability and secure payments.
+          </p>
+        </div>
+
+        {/* Image */}
+        <div className="flex justify-center">
+          <img
+            src={heroImages[activeTab]}
+            alt={activeTab}
+            className="w-full h-full object-cover rounded-2xl shadow-2xl transition-all duration-700"
+          />
+        </div>
+      </div>
+
+      {/* Search Panel */}
+      <div className="relative z-10 max-w-6xl mx-auto -mt-10">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6">
+
+          {/* Tabs */}
+          <div className="flex items-center gap-4 mb-6">
+            {[
+              { key: "bus", icon: <FaBus /> },
+              { key: "plane", icon: <FaPlane /> },
+              { key: "train", icon: <FaTrain /> },
+            ].map((tab) => (
+              <button
+                key={tab.key}
+                onClick={() => setActiveTab(tab.key)}
+                className={`px-5 py-2 rounded-full flex items-center gap-2 font-medium transition
+                ${
+                  activeTab === tab.key
+                    ? "bg-gradient-to-br from-green-400 to-blue-800 text-white"
+                    : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300"
+                }`}
+              >
+                {tab.icon} {tab.key.charAt(0).toUpperCase() + tab.key.slice(1)}
               </button>
-            </div>
+            ))}
           </div>
-        </SwiperSlide>
-        {/* Slide 1 */}
-        <SwiperSlide>
-          <div
-            className="h-full w-full bg-cover bg-center flex items-center"
-            style={{
-              backgroundImage:
-                `linear-gradient(to bottom right,   rgba(0, 0, 0, 0.55),
-  rgba(0, 0, 0, 0.75)), url(${img})`,
-            }}
-          >
-            <div className="max-w-7xl ml-5 px-6 ">
-              <h1 className="text-4xl md:text-7xl font-bold mb-4 z-10 text-white ">
-                Travel Smarter, Faster
-              </h1>
-              <p className="text-lg md:text-xl mb-6 text-white">
-                Book premium buses & flights at the best prices
-              </p>
-              <button className=" px-8 py-4 text-xl bg-gradient-to-br from-green-400 to-blue-800  text-black font-semibold rounded-lg shadow-md transition duration-200">
-                Book Now
-              </button>
-            </div>
+
+          {/* Inputs */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            
+            <input
+              type="text"
+              placeholder="From"
+              value={form.from}
+              onChange={(e) => setForm({ ...form, from: e.target.value })}
+              className="px-4 py-3 rounded-xl border bg-gray-50 dark:bg-gray-700 dark:text-white"
+            />
+
+            <input
+              type="text"
+              placeholder="To"
+              value={form.to}
+              onChange={(e) => setForm({ ...form, to: e.target.value })}
+              className="px-4 py-3 rounded-xl border bg-gray-50 dark:bg-gray-700 dark:text-white"
+            />
+
+            {/* CTA */}
+            <motion.button
+              whileHover={{ scale: 1.08 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={handleSearch}
+              className="flex items-center justify-center gap-2 py-3 rounded-xl text-white font-semibold
+              bg-gradient-to-br from-green-400 to-blue-800 shadow-lg"
+            >
+              <FaSearch /> Search Tickets
+            </motion.button>
+
           </div>
-        </SwiperSlide>
-
-        {/* Slide 2 */}
-     
-
-        {/* Slide 3 */}
-        <SwiperSlide>
-          <div
-            className="h-full w-full bg-cover bg-center flex items-center"
-            style={{
-              backgroundImage:
-                "linear-gradient(to bottom right,rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.75)), url('https://images.unsplash.com/photo-1569154941061-e231b4725ef1')",
-            }}
-          >
-            <div className="max-w-7xl  px-6 ">
-              <h1 className="text-4xl md:text-7xl font-bold mb-4 z-10 text-white">
-                Safe Journeys Guaranteed
-              </h1>
-              <p className="text-lg md:text-xl mb-6 text-white">
-                Trusted routes • Secure payments
-              </p>
-              <button className="px-8 py-4 text-xl bg-gradient-to-br from-green-400 to-blue-800  text-black font-semibold rounded-lg shadow-md transition duration-200">
-                Get Started
-              </button>
-            </div>
-          </div>
-        </SwiperSlide>
-
-      </Swiper>
-    </div>
+        </div>
+      </div>
+    </section>
   );
-};
-
-export default Banner;
+}
