@@ -31,6 +31,7 @@ import VendorRoute from './Componants/Routes/VendorRoute.jsx'
 import AdminRoute from './Componants/Routes/AdminRoute.jsx'
 import About from './Componants/About.jsx'
 import SearchResults from './Componants/Home/SearchResults.jsx'
+import HelpSupport from './Componants/Home/HelpSupport.jsx'
 
 
 const queryClient = new QueryClient()
@@ -63,6 +64,10 @@ const router = createBrowserRouter([
     {
       path: '/about',
       Component: About
+    },
+    {
+      path: '/help&support',
+      Component: HelpSupport
     },
     {
       path: '/search',

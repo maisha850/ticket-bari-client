@@ -32,7 +32,7 @@ const Home = () => {
     </div>
       </div>
 
-      <div className=' bg-white dark:bg-gray-900 transition-colors py-15
+      <div className='  py-15
       dark:from-gray-900 dark:via-gray-900 dark:to-gray-950'>
            <div data-aos="fade-up" data-aos-delay="400" className='max-w-7xl mx-auto'>
           <LatestTickets />
@@ -54,7 +54,7 @@ const Home = () => {
 <WhyChooseUs></WhyChooseUs>
 <HowToBuyTickets></HowToBuyTickets>
 
-     <div className='  dark:bg-gray-900 transition-colors'>
+     <div className='  '>
        <div data-aos="fade-left" data-aos-delay="300" className=' max-w-7xl mx-auto py-15'>
         <FAQ />
       </div>

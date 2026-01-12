@@ -37,7 +37,7 @@ const navigate = useNavigate()
    }
     return (
         <div>
-                <div className="w-full    rounded-xl shadow-lg overflow-hidden transform transition-all hover:scale-[1.02] hover:shadow-2xl">
+                <div className="w-full  bg-gray-100 dark:bg-gray-800  rounded-xl shadow-lg overflow-hidden transform transition-all hover:scale-[1.02] hover:shadow-2xl">
 
       {/* Image */}
       <img

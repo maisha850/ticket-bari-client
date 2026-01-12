@@ -16,7 +16,7 @@ return res.data
     })
     return (
         <div>
-              <h3 className='text-4xl font-bold'>My Booked Tickets: {tickets.length}</h3>
+                <h3 className='text-3xl font-bold mb-4'>Total <span className='text-green-500'>({tickets.length}) </span>Booked Tickets Found</h3>
               <div className='grid grid-cols-1'>
                 {
                 tickets.map(ticket=><BookedCard key={ticket._id} ticket={ticket}></BookedCard>)

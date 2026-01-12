@@ -53,7 +53,7 @@ toast.error(err?.message)
  
     return (
          <div className='flex justify-center items-center py-15 '>
-      <div className='flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900'>
+      <div className='flex flex-col max-w-md p-6 rounded-xl shadow-md sm:p-10  bg-white dark:bg-gray-800 text-gray-900'>
         <div className='mb-8 text-center'>
           <h1 className='my-3 text-title'>Log In</h1>
           <p className='text-sm text-gray-400'>
@@ -68,7 +68,7 @@ toast.error(err?.message)
         >
           <div className='space-y-4'>
             <div>
-                <label htmlFor='email' className='block mb-2 text-sm'>
+                <label htmlFor='email' className='block mb-2 text-gray-600 dark:text-gray-400 text-sm'>
                 Email address
               </label>
               <input
@@ -87,7 +87,7 @@ toast.error(err?.message)
             </div>
             <div>
               <div className='flex justify-between'>
-                <label htmlFor='password' className='text-sm mb-2'>
+                <label htmlFor='password' className='text-sm mb-2 text-gray-600 dark:text-gray-400'>
                   Password
                 </label>
               </div>
@@ -147,7 +147,7 @@ toast.error(err?.message)
         </div>
         <div
   onClick={handleGoogleSignIn}
-          className='flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer'
+          className='flex justify-center text-black dark:text-gray-400 items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer'
         >
           <FcGoogle size={32} />
 

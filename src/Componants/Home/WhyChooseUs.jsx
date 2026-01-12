@@ -26,7 +26,7 @@ const featuresRight = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="py-24 px-4 bg-white dark:bg-gray-900 transition-colors">
+    <section className="py-24 px-4 ">
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}

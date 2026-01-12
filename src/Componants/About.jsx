@@ -27,7 +27,7 @@ export default function About() {
         transition={{ type: "spring", stiffness: 100, duration: 1 }}
         className="w-full md:w-1/2 md:pl-12"
       >
-        <h2 className="text-title -ml-55 mb-3">
+        <h2 className="md:text-6xl text-4xl font-bold bg-gradient-to-br from-green-400 to-blue-800  bg-clip-text text-transparent leading-tight mb-3">
           About TicketBari
         </h2>
         <p className="text-gray-600 dark:text-gray-300 mb-4">

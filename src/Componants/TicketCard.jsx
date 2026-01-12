@@ -51,9 +51,9 @@ const TicketCard = ({ ticket }) => {
          </div>
  
          {/* Seats Left */}
-         <p className="text-sm bg-green-100 text-green-700 px-3 py-1 inline-block rounded-full font-medium">
-           {ticket.quantity} seats left
-         </p>
+        <p className="text-sm bg-gray-100 dark:bg-gray-700  border border-gray-200 dark:border-gray-600 text-gray-700 dark:text-gray-200 px-3 py-1 inline-block rounded-full font-medium">
+          {ticket.quantity} seats left
+        </p>
          </div>
  
          {/* Perks */}

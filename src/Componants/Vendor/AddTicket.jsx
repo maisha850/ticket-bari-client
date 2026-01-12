@@ -128,8 +128,8 @@ const AddTicket = () => {
 };
 
   return (
-    <div className="max-w-3xl mx-auto p-6  rounded-xl shadow-xl border border-gray-300 mt-10">
-      <h2 className="text-3xl font-bold text-center mb-6 text-green-500">
+    <div className="max-w-3xl dark:bg-gray-800 mx-auto p-6 bg-gray-100 rounded-xl shadow-md mt-10">
+      <h2 className="text-3xl font-bold bg-gradient-to-br from-green-400 to-blue-800  bg-clip-text text-transparent leading-tight text-center mb-6 ">
         🎟 Add New Ticket
       </h2>
 
@@ -161,7 +161,7 @@ const AddTicket = () => {
 
         {/* Transport Type */}
         <select
-          className="p-3 border border-gray-300 rounded-md"
+          className="p-3 border border-gray-300 text-gray-500 rounded-md"
           {...register("transportType", { required: true })}
         >
           <option value="">Select Transport Type</option>
@@ -225,7 +225,7 @@ const AddTicket = () => {
                   name='image'
                   id='image'
                 />
-                <div className='bg-green-500 text-white border border-gray-300 rounded font-semibold cursor-pointer p-1 px-3 hover:bg-yellow-400'>
+                <div className='bg-gradient-to-br from-green-400 to-blue-800  text-white border border-gray-300 rounded font-semibold cursor-pointer p-1 px-3 hover:opacity-80'>
                   Upload Image
                 </div>
               </label>

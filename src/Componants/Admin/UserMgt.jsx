@@ -17,6 +17,13 @@ const UserMgt = () => {
             return res.data;
         }
     });
+      const { data: totalUser = [] } = useQuery({
+        queryKey: ['user', searchText],
+        queryFn: async () => {
+            const res = await instance.get(`/totalUsers`);
+            return res.data;
+        }
+    });
 
     // Make Admin
     const handleMakeAdmin = async (user) => {
@@ -78,7 +85,7 @@ const UserMgt = () => {
 
     return (
         <div>
-            <h3 className='text-3xl font-bold mb-4'>Manage Users: {users.length}</h3>
+              <h3 className='text-3xl font-bold mb-4'>Total <span className='text-green-500'>({totalUser.length}) </span>Users Found</h3>
 
             {/* Search */}
             <label className="input my-5 flex items-center gap-2">

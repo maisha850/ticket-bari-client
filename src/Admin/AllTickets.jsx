@@ -111,7 +111,7 @@ const AllTickets = () => {
             </div>
 
             {/* Tickets */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 px-6 md:px-0 gap-8">
                 {paginatedTickets.length > 0 ? (
                     paginatedTickets.map(ticket => (
                         <TicketCard key={ticket._id} ticket={ticket} />

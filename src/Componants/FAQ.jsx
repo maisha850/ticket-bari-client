@@ -40,7 +40,7 @@ const FAQ = () => {
 
         <div className="space-y-4">
           {faqs.map((item, i) => (
-            <div key={i} className="collapse collapse-plus bg-base-200 dark:bg-gray-800 rounded-xl">
+            <div key={i} className="collapse collapse-plus bg-white shadow-md dark:bg-gray-800  rounded-xl">
               <input type="radio" name="faq-accordion" />
               <div className="collapse-title text-gray-800 dark:text-gray-300 text-lg font-semibold">
                 {item.q}
@@ -56,7 +56,7 @@ const FAQ = () => {
       </div>
 
       {/* RIGHT – IMAGE */}
-      <div className="flex justify-center">
+      <div className="flex justify-center items-center">
         <img
           src='https://images.unsplash.com/photo-1728055624777-008a827a4817?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDM1fHx8ZW58MHx8fHx8'
           alt="Ticket Bari FAQ Image"

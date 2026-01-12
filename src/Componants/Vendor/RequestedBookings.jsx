@@ -45,7 +45,7 @@ return res.data
     }
     return (
        <div>
-           <h2 className='text-3xl font-bold'>Requested Bookings: {payments.length} </h2>
+             <h3 className='text-3xl font-bold mb-4'>Total <span className='text-green-500'>({payments.length}) </span>Tickets Request Sent for Booking</h3>
 
            <div className="overflow-x-auto">
   <table className="table table-zebra">

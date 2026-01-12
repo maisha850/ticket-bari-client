@@ -16,7 +16,7 @@ return res.data
     })
     return (
         <div>
-           <h2 className='text-3xl font-bold'>Payment History: {payments.length} </h2>
+          <h3 className='text-3xl font-bold mb-4'>Total <span className='text-green-500'>({payments.length}) </span>Transactions Found</h3>
 
            <div className="overflow-x-auto">
   <table className="table table-zebra">

@@ -51,7 +51,7 @@ toast.error(err?.message)
     
     return (
        <div className='flex justify-center items-center min-h-screen py-15 '>
-      <div className='flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900'>
+      <div className='flex flex-col max-w-md p-6 rounded-xl shadow-md sm:p-10 bg-white  dark:bg-gray-800 text-gray-900'>
         <div className='mb-8 text-center'>
           <h1 className='my-3 text-title '>Register</h1>
           <p className='text-sm text-gray-400'>Welcome to TicketBari</p>
@@ -64,7 +64,7 @@ toast.error(err?.message)
         >
           <div className='space-y-4'>
            
-              <label htmlFor='email' className='block mb-2 text-sm'>
+              <label htmlFor='email' className='block mb-2 text-gray-600 dark:text-gray-400 text-sm'>
                 Name
               </label>
               <input
@@ -80,7 +80,7 @@ toast.error(err?.message)
                 errors?.name?.type === 'required' && <p className='text-red-500'>Name is required</p>
               }
            {errors.name?.type === 'maxLength' && <p className='text-red-500'>Name must be within 20 characters</p>}
-              <label htmlFor='email' className='block mb-2 text-sm'>
+              <label htmlFor='email' className='block mb-2 text-gray-600 dark:text-gray-400 text-sm'>
                 Email address
               </label>
               <input
@@ -101,7 +101,7 @@ toast.error(err?.message)
             <div>
               <label
                 htmlFor='image'
-                className='block mb-2 text-sm'
+                className='block mb-2 text-gray-600 dark:text-gray-400 text-sm'
               >
                 Photo-URL
               </label>
@@ -111,7 +111,7 @@ toast.error(err?.message)
             </div>
             <div>
               <div className='flex justify-between'>
-                <label htmlFor='password' className='text-sm mb-2'>
+                <label htmlFor='password' className='text-sm text-gray-600 dark:text-gray-400 mb-2'>
                   Password
                 </label>
               </div>
@@ -150,7 +150,7 @@ toast.error(err?.message)
           <div className='flex-1 h-px sm:w-16 dark:bg-gray-700'></div>
         </div>
         <div onClick={handleGoogleSignIn}
-          className='flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer'
+          className='flex  text-black dark:text-gray-400 justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer'
         >
           <FcGoogle size={32} />
 

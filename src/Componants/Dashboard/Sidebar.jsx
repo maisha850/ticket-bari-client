@@ -144,7 +144,7 @@ const Sidebar = () => {
       {/* Sidebar */}
       <aside
         className={`
-          fixed md:static z-50 top-0 left-0 min-h-screen w-64   shadow-xl
+          fixed md:static z-50 top-0 left-0 min-h-screen w-64  bg-gray-800 shadow-xl
           transform transition-transform duration-300 ease-in-out
           ${isOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}
         `}
@@ -152,10 +152,10 @@ const Sidebar = () => {
         <div className="flex flex-col h-full">
 
           {/* Logo */}
-          <div className="hidden md:flex items-center justify-center p-4 bg-blue-950">
+          <div className="hidden md:flex p-4">
             <Logo />
           </div>
-
+<div className="px-4 border-b-1 border-gray-400"></div>
           {/* Menu */}
           <nav className="flex-1 p-4 space-y-2 overflow-y-auto">
             {role === "vendor" && <VendorMenu />}
@@ -168,7 +168,7 @@ const Sidebar = () => {
             <NavLink
               to="/dashboard/profile"
               onClick={() => setIsOpen(false)}
-              className="flex items-center gap-3 p-2 rounded-lg text-gray-600 hover:bg-gray-100"
+              className="flex items-center gap-3 p-2 rounded-lg text-gray-300 hover:bg-gray-100/20"
             >
               <CgProfile size={20} />
               Profile
@@ -176,7 +176,7 @@ const Sidebar = () => {
 
             <button
               onClick={logOut}
-              className="flex items-center gap-3 p-2 mt-4 w-full rounded-lg text-gray-600 hover:bg-gray-100"
+              className="flex items-center gap-3 p-2 mt-4 w-full rounded-lg text-gray-300 hover:bg-gray-100/20"
             >
               <GrLogout size={18} />
               Logout

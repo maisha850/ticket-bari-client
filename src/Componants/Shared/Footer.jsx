@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router";
 import { FaFacebook, FaEnvelope, FaPhone } from "react-icons/fa";
+import Logo from "./Logo";
 
 const Footer = () => {
   return (
@@ -11,7 +12,7 @@ const Footer = () => {
 
         {/* Column 1 – Logo + Description */}
         <div>
-          <h2 className="text-2xl font-bold text-primary">TicketBari</h2>
+      <Logo></Logo>
           <p className="mt-3 text-sm leading-relaxed text-white">
             Book bus, train, launch & flight tickets easily — all in one platform.
           </p>
@@ -23,7 +24,7 @@ const Footer = () => {
           <ul className="space-y-2 text-sm text-white">
             <li><Link to="/" className="hover:text-primary">Home</Link></li>
             <li><Link to="/all-tickets" className="hover:text-primary">All Tickets</Link></li>
-            <li><Link to="/" className="hover:text-primary">Contact Us</Link></li>
+            <li><Link to="/help&support" className="hover:text-primary">Help & Support</Link></li>
             <li><Link to="/about" className="hover:text-primary">About</Link></li>
           </ul>
         </div>
@@ -40,7 +41,7 @@ const Footer = () => {
             </li>
             <li className="flex items-center gap-2">
               <FaFacebook/>
-              <a href="#" className="hover:text-primary">Facebook Page</a>
+              <a href="https://www.facebook.com/" className="hover:text-primary">Facebook Page</a>
             </li>
           </ul>
         </div>
@@ -61,7 +62,7 @@ const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="py-4 bg-blue-950 text-center text-sm text-white">
-        © 2025 <span className="font-semibold">TicketBari</span>. All rights reserved.
+        © 2026 <span className="font-semibold">TicketBari</span>. All rights reserved.
       </div>
 
     </footer>

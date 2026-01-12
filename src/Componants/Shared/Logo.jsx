@@ -2,14 +2,16 @@ import React from 'react';
 
 import { Link } from 'react-router';
 
-import { BsTrainFrontFill } from 'react-icons/bs';
+import logo from '../../assets/Gemini_Generated_Image_xze8axxze8axxze8-removebg-preview.png'
 
 
 const Logo = () => {
     return (
         <Link className='flex items-center  ' to={'/'}>
-         <BsTrainFrontFill className='text-green-400' size={20} style={{ transform: "scaleX(-1)" }}></BsTrainFrontFill>
-         <h3 className='font-bold text-xl text-primary '>TICKETBARI</h3>
+     <div className='flex flex-col items-center'>
+           <img className='w-20 h-10' src={logo} alt="" />
+        <h3 className=' font-semibold text-primary text-sm -mt-1'><span className=''>Ticket</span>Bari</h3>
+     </div>
         </Link>
     );
 };

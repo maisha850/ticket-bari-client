@@ -61,7 +61,7 @@ const handlePayment = async () => {
 
     return (
          <div>
-             <div className=" max-w-3xl mx-auto bg-white p-8 shadow-xl rounded-lg overflow-hidden mt-10 md:flex gap-8">
+             <div className=" max-w-3xl mx-auto bg-white dark:bg-gray-800  p-8 shadow-xl rounded-lg overflow-hidden mt-10 md:flex gap-8">
       {/* Banner Image */}
       <img 
         src={ticket.image} 
@@ -74,7 +74,7 @@ const handlePayment = async () => {
 
         {/* Title & Type */}
         <div className="flex flex-col gap-2">
-          <h2 className="text-2xl font-bold text-gray-800">{ticket.title}</h2>
+          <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-300">{ticket.title}</h2>
     <p>{
       ticket.status === 'paid' ? <p className='btn btn-xs btn-success btn-outline'>Paid</p> : <p className='btn btn-xs btn-error btn-outline'>{ticket.status}</p>
 }
@@ -82,20 +82,20 @@ const handlePayment = async () => {
         </div>
          {/* Countdown */}
 
-         { ticket.status === 'rejected' ?  null :  <div className="bg-gray-100 py-3 px-5 rounded-md text-center">
-          <p className="text-gray-600 text-sm">Departure Countdown</p>
-          <h3 className="text-xl font-semibold text-green-600">{countdown}</h3>
+         { ticket.status === 'rejected' ?  null :  <div className="bg-gray-100 dark:bg-gray-600 py-3 px-5 rounded-md text-center">
+          <p className="text-gray-600 dark:text-gray-300 text-sm">Departure Countdown</p>
+          <h3 className="text-xl font-semibold text-green-500">{countdown}</h3>
         </div>
  }
        
         {/* Route */}
-        <p className="text-lg font-medium text-gray-700">
+        <p className="text-lg font-medium text-gray-700 dark:text-gray-300">
           {ticket.from} → {ticket.to}
         </p>
         
 
         {/* Info Grid */}
-        <div className=" text-gray-700">
+        <div className=" text-gray-700 dark:text-gray-300">
         
           <p><span className="font-semibold">Booking Quantity:</span> {ticket.quantity}</p>
           <p><span className="font-semibold">Total price:</span> ৳{ticket.total}</p>

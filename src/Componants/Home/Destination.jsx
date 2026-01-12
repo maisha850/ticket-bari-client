@@ -51,7 +51,7 @@ const cardVariants = {
 
 export default function Destination() {
   return (
-    <section className="py-24 px-4 sm:px-6 bg-white dark:bg-gray-900 transition-colors">
+    <section className="py-24 px-4 sm:px-6 ">
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}

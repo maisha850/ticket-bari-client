@@ -23,7 +23,7 @@ const steps = [
 
 export default function HowToBuyTickets() {
   return (
-    <section className="py-24 px-4 bg-white dark:bg-gray-900 transition-colors">
+    <section className="py-24 px-4 ">
       
       {/* Heading */}
       <motion.div
@@ -52,7 +52,7 @@ export default function HowToBuyTickets() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.15 }}
-              className="items-center justify-center gap-4 flex p-6 rounded-xl dark:bg-gray-800 bg-teal-50"
+              className="items-center justify-center gap-4 flex p-6 shadow-md rounded-xl dark:bg-gray-800 bg-white"
             >
               {/* Icon */}
               <div className="flex  mb-5">

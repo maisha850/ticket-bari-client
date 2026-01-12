@@ -11,6 +11,7 @@ const Navbar = () => {
     <NavLink to="/all-tickets" className="mr-8 ">All Tickets</NavLink>
     <NavLink to="/dashboard" className="mr-8 ">Dashboard</NavLink>
     <NavLink to="/about" className="mr-8 ">About</NavLink>
+    <NavLink to="/help&support" className="mr-8 ">Help & Support</NavLink>
    {
     !user && <>
      <NavLink to="/register" className="mr-8 ">Register</NavLink>
@@ -36,7 +37,7 @@ await logOut()
 toast.success('Log Out Successfully!')
     }
     return (
-     <div className="navbar bg-base-100 shadow-sm">
+     <div className="navbar dark:bg-gray-800 bg-base-100 shadow-sm">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
